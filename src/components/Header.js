@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
 const Wrapper = styled.div`
-  background: url("${props => props.theme.bgPattern}") #000;
+  background: url("${props => props.theme.bgPattern}") #b6b6b6;
   display: flex;
   position: relative;
 `
@@ -14,29 +14,16 @@ const Content = styled.div`
   padding: 3rem 1.0875rem 3rem 1.0875rem;
   color: ${props => props.theme.colors.secondary};
   text-align: center;
-  height: 600px;
+  height: 400px;
   @media (max-width: ${props => props.theme.breakpoints.s}) {
     height: 500px;
-  }
-`
-
-const Avatar = styled.div`
-  height: 125px;
-  width: 125px;
-  margin: 0 auto;
-  image-rendering: -moz-crisp-edges;
-  image-rendering: -o-crisp-edges;
-  image-rendering: -webkit-optimize-contrast;
-  -ms-interpolation-mode: nearest-neighbor;
-
-  img {
-    border-radius: 50%;
   }
 `
 
 const Name = styled.h1`
   margin: 1rem 0 0.25rem 0;
   color: ${props => props.theme.colors.color};
+  font-size: 4rem;
 `
 
 const Location = styled.div`
@@ -51,15 +38,14 @@ const SocialMedia = styled.div`
 
   a {
     margin: 0 0.3rem;
+    color: black;
+    text-decoration: underline;
   }
 `
 
-const Header = ({ avatar, name, location, socialMedia }) => (
+const Header = ({ name, location, socialMedia }) => (
   <Wrapper>
     <Content>
-      <Avatar>
-        <img src={avatar} alt={name} />
-      </Avatar>
       <Name>{name}</Name>
       <Location>{location}</Location>
       <SocialMedia>
@@ -76,7 +62,6 @@ const Header = ({ avatar, name, location, socialMedia }) => (
 export default Header
 
 Header.propTypes = {
-  avatar: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   location: PropTypes.string.isRequired,
   socialMedia: PropTypes.array.isRequired,
