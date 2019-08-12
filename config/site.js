@@ -5,7 +5,7 @@ module.exports = {
   siteTitleAlt: 'Jože Suhadolnik - personal website', // Alternative Site title for SEO
   siteTitleShort: 'SuhadolnikPhoto', // short_name for manifest
   siteHeadline: 'I tell stories through photography', // Headline for schema.org JSONLD
-  siteUrl: '', // Domain of your site. No trailing slash!
+  siteUrl: 'https://suhadolnik.eu', // Domain of your site. No trailing slash!
   siteLanguage: 'en', // Language Tag on <html> element
   siteLogo: '', // Used for SEO and manifest
   siteDescription: 'Dark One-Page portfolio with cards & detailed project views',

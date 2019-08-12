@@ -9,7 +9,7 @@ module.exports = {
     dark_bg: 'black',
     secondary: 'black',
     footer: 'white',
-    link: '#328bff',
+    link: '#383838',
     linkHover: '#79a8ff',
   },
   maxWidths: {

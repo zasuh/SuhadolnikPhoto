@@ -83,9 +83,6 @@ const ProjectHeader = ({ avatar, name, title, date, areas, text }) => {
       <Content>
         <Back to="/">
           <img src={arrow} data-info="back" alt="Back to home" aria-label="Back to home" />
-          <Avatar>
-            <img src={avatar} alt={name} />
-          </Avatar>
           <Name>{name}</Name>
         </Back>
         <Details>

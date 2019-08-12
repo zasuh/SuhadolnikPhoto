@@ -61,3 +61,6 @@ bundle-stats.json
 
 cypress/screenshots
 cypress/videos
+
+# Pictures
+.jpg
