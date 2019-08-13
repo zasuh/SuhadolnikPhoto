@@ -14,9 +14,9 @@ module.exports = {
   },
   maxWidths: {
     general: '1600px',
-    project: 1600,
+    project: 550,
   },
-  gridColumns: 3, // Number of columns of the grid on the index page
+  gridColumns: 2, // Number of columns of the grid on the index page
   contentPadding: '1.0875rem',
   breakpoints: {
     xs: '400px',

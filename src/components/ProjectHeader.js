@@ -33,21 +33,6 @@ const Back = styled(Link)`
   }
 `
 
-const Avatar = styled.div`
-  height: 3rem;
-  width: 3rem;
-  image-rendering: -moz-crisp-edges;
-  image-rendering: -o-crisp-edges;
-  image-rendering: -webkit-optimize-contrast;
-  -ms-interpolation-mode: nearest-neighbor;
-
-  img {
-    border-radius: 50%;
-    height: auto;
-    width: 100%;
-  }
-`
-
 const Name = styled(animated.h4)`
   margin: 0 0 0 1rem;
   color: ${props => props.theme.colors.color};
@@ -69,7 +54,7 @@ const Text = styled.div`
   color: white;
 `
 
-const ProjectHeader = ({ avatar, name, title, date, areas, text }) => {
+const ProjectHeader = ({ name, title, date, areas, text }) => {
   const titleProps = useSpring({
     config: config.slow,
     delay: 200,
@@ -112,7 +97,6 @@ const ProjectHeader = ({ avatar, name, title, date, areas, text }) => {
 export default ProjectHeader
 
 ProjectHeader.propTypes = {
-  avatar: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   date: PropTypes.string.isRequired,
