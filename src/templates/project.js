@@ -24,6 +24,16 @@ const InnerWrapper = styled.div`
   margin: 0 auto;
 `
 
+const Grid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(${props => props.theme.gridColumns}, 1fr);
+  grid-gap: 20px;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+`
+
 const Project = ({ pageContext: { slug, prev, next }, data: { project: postNode, images } }) => {
   const project = postNode.frontmatter
 
@@ -41,14 +51,16 @@ const Project = ({ pageContext: { slug, prev, next }, data: { project: postNode,
       <BG>
         <OuterWrapper>
           <InnerWrapper>
-            {images.nodes.map(image => (
-              <Img
-                alt={image.name}
-                key={image.childImageSharp.fluid.src}
-                fluid={image.childImageSharp.fluid}
-                style={{ margin: '3rem 0' }}
-              />
-            ))}
+            <Grid>
+              {images.nodes.map(image => (
+                <Img
+                  alt={image.name}
+                  key={image.childImageSharp.fluid.src}
+                  fluid={image.childImageSharp.fluid}
+                  style={{ margin: '3rem 0' }}
+                />
+              ))}
+            </Grid>
           </InnerWrapper>
           <ProjectPagination next={next} prev={prev} />
         </OuterWrapper>
