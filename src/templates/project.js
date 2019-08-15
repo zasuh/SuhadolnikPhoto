@@ -26,7 +26,7 @@ const InnerWrapper = styled.div`
 
 const Grid = styled.div`
   display: grid;
-  grid-template-columns: repeat(${props => props.theme.gridColumns}, 1fr);
+  grid-template-columns: repeat(${props => props.theme.gridColumnsProject}, 1fr);
   grid-gap: 20px;
 
   @media (max-width: 768px) {
