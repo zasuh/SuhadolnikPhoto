@@ -41,7 +41,6 @@ const Project = ({ pageContext: { slug, prev, next }, data: { project: postNode,
     <Layout customSEO>
       <SEO postPath={slug} postNode={postNode} postSEO />
       <ProjectHeader
-        avatar={config.avatar}
         name={config.name}
         date={project.date}
         title={project.title}
@@ -57,7 +56,7 @@ const Project = ({ pageContext: { slug, prev, next }, data: { project: postNode,
                   alt={image.name}
                   key={image.childImageSharp.fluid.src}
                   fluid={image.childImageSharp.fluid}
-                  style={{ margin: '3rem 0' }}
+                  style={{ margin: '2rem 0' }}
                 />
               ))}
             </Grid>

@@ -9,7 +9,6 @@ import { Link } from 'gatsby'
 const CardItem = styled(Link)`
   min-height: 500px;
   position: relative;
-  overflow: hidden;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.2);
   display: flex;
   flex-direction: column;
@@ -31,9 +30,6 @@ const Cover = styled.div`
   width: 100%;
   height: 100%;
   position: absolute;
-  div {
-    overflow: hidden;
-  }
 `
 
 const Content = styled.div`
