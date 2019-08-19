@@ -63,4 +63,4 @@ cypress/screenshots
 cypress/videos
 
 # Pictures
-#*.jpg
+*.jpg
