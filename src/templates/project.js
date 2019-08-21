@@ -7,7 +7,9 @@ import styled from 'styled-components'
 import { Layout, ProjectHeader, ProjectPagination, SEO } from '../components'
 import config from '../../config/site'
 
-const Carousel = styled(Link)``
+const Carousel = styled(Link)`
+  position: relative;
+`
 
 const BG = styled.div`
   background-color: ${props => props.theme.colors.bg};
@@ -54,14 +56,15 @@ const Project = ({ pageContext: { slug, prev, next }, data: { project: postNode,
           <InnerWrapper>
             <Grid>
               {images.nodes.map(image => (
-                // Add Carousel wrapper TODO
-                <Img
-                  alt={image.name}
-                  key={image.childImageSharp.fluid.src}
-                  fluid={image.childImageSharp.fluid}
-                  style={{ margin: '2rem 0' }}
-                  imgStyle={{ objectFit: 'contain' }}
-                />
+                <Carousel>
+                  <Img
+                    alt={image.name}
+                    key={image.childImageSharp.fluid.src}
+                    fluid={image.childImageSharp.fluid}
+                    style={{ margin: '2rem 0' }}
+                    imgStyle={{ objectFit: 'contain' }}
+                  />
+                </Carousel>
               ))}
             </Grid>
           </InnerWrapper>
