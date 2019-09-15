@@ -56,7 +56,7 @@ const Project = ({ pageContext: { slug, prev, next }, data: { project: postNode,
           <InnerWrapper>
             <Grid>
               {images.nodes.map(image => (
-                <Carousel>
+                <Carousel to={path}>
                   <Img
                     alt={image.name}
                     key={image.childImageSharp.fluid.src}
