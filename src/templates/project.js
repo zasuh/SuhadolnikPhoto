@@ -38,7 +38,16 @@ const Grid = styled.div`
   }
 `
 
-const Project = ({ pageContext: { slug, prev, next }, data: { project: postNode, images } }) => {
+const Project = ({
+  pageContext: { slug, prev, next },
+  data: {
+    project: postNode,
+    images,
+    allMdx: {
+      nodes: { fields },
+    },
+  },
+}) => {
   const project = postNode.frontmatter
 
   return (
@@ -56,7 +65,7 @@ const Project = ({ pageContext: { slug, prev, next }, data: { project: postNode,
           <InnerWrapper>
             <Grid>
               {images.nodes.map(image => (
-                <Carousel to={path}>
+                <Carousel to={slug} key={image.childImageSharp.fluid.src} images={fields}>
                   <Img
                     alt={image.name}
                     key={image.childImageSharp.fluid.src}
@@ -86,6 +95,9 @@ Project.propTypes = {
   data: PropTypes.shape({
     project: PropTypes.object.isRequired,
     images: PropTypes.object.isRequired,
+    allMdx: PropTypes.shape({
+      nodes: PropTypes.array.isRequired,
+    }),
   }).isRequired,
 }
 
@@ -111,6 +123,13 @@ export const pageQuery = graphql`
           fluid(maxWidth: 1600, quality: 90) {
             ...GatsbyImageSharpFluid_withWebp
           }
+        }
+      }
+    }
+    allMdx {
+      nodes {
+        fields {
+          slug
         }
       }
     }

@@ -3,9 +3,6 @@ import 'react-responsive-carousel/lib/styles/carousel.min.css'
 import { Carousel } from 'react-responsive-carousel'
 import PropTypes from 'prop-types'
 
-// Gatsby specific
-import { graphql } from 'gatsby'
-
 const ImgCarousel = ({ data }) => {
   console.log(data)
   return (
@@ -27,15 +24,3 @@ ImgCarousel.propTypes = {
     }),
   }).isRequired,
 }
-
-export const pageQuery = graphql`
-  query CarouselQuery {
-    allMdx {
-      nodes {
-        fields {
-          slug
-        }
-      }
-    }
-  }
-`
