@@ -65,7 +65,7 @@ const Project = ({
           <InnerWrapper>
             <Grid>
               {images.nodes.map(image => (
-                <Carousel to={slug} key={image.childImageSharp.fluid.src} images={fields}>
+                <Carousel path={slug} key={image.childImageSharp.fluid.src} images={fields}>
                   <Img
                     alt={image.name}
                     key={image.childImageSharp.fluid.src}
