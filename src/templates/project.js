@@ -43,9 +43,7 @@ const Project = ({
   data: {
     project: postNode,
     images,
-    allMdx: {
-      nodes: { fields },
-    },
+    allMdx: { nodes },
   },
 }) => {
   const project = postNode.frontmatter
@@ -65,7 +63,7 @@ const Project = ({
           <InnerWrapper>
             <Grid>
               {images.nodes.map(image => (
-                <Carousel path={slug} key={image.childImageSharp.fluid.src} images={fields}>
+                <Carousel path="/content/projects" key={image.childImageSharp.fluid.src} images={fields}>
                   <Img
                     alt={image.name}
                     key={image.childImageSharp.fluid.src}

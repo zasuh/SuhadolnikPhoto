@@ -21,7 +21,7 @@
         "argsIgnorePattern": "res|next|stage|^err|on|config"
       }
     ],
-    "arrow-body-style": [2, "as-needed"],
+    "arrow-body-style": [0, "as-needed"],
     "no-param-reassign": [
       2,
       {
