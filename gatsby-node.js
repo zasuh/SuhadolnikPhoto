@@ -37,6 +37,7 @@ exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
 
   const projectTemplate = require.resolve('./src/templates/project.js')
+  const carouselTemplate = require.resolve('./src/templates/picture-carousel.js')
 
   const result = await wrapper(
     graphql(`
@@ -65,6 +66,17 @@ exports.createPages = async ({ graphql, actions }) => {
     createPage({
       path: n.fields.slug,
       component: projectTemplate,
+      context: {
+        slug: n.fields.slug,
+        // Pass the current directory of the project as regex in context so that the GraphQL query can filter by it
+        absolutePathRegex: `/^${path.dirname(n.fileAbsolutePath)}/`,
+        prev,
+        next,
+      },
+    })
+    createPage({
+      path: n.fields.slug,
+      component: carouselTemplate,
       context: {
         slug: n.fields.slug,
         // Pass the current directory of the project as regex in context so that the GraphQL query can filter by it

@@ -5,6 +5,6 @@ import Layout from './Layout'
 import ProjectHeader from './ProjectHeader'
 import ProjectPagination from './ProjectPagination'
 import SEO from './SEO'
-import Carousel from './Carousel'
+import ImgCarousel from './Carousel'
 
-export { Card, Footer, Header, Layout, ProjectHeader, ProjectPagination, SEO, Carousel }
+export { Card, Footer, Header, Layout, ProjectHeader, ProjectPagination, SEO, ImgCarousel }

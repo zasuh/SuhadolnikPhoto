@@ -38,14 +38,7 @@ const Grid = styled.div`
   }
 `
 
-const Project = ({
-  pageContext: { slug, prev, next },
-  data: {
-    project: postNode,
-    images,
-    allMdx: { nodes },
-  },
-}) => {
+const Project = ({ pageContext: { slug, prev, next }, data: { project: postNode, images } }) => {
   const project = postNode.frontmatter
 
   return (

@@ -1,21 +1,11 @@
 import React from 'react'
 import 'react-responsive-carousel/lib/styles/carousel.min.css'
-import { Carousel } from 'react-responsive-carousel'
 import PropTypes from 'prop-types'
 
 import { graphql } from 'gatsby'
 
-const ImgCarousel = ({ data: { images } }) => {
-  return (
-    <Carousel>
-      {images.nodes.map(image => (
-        <div>
-          <img alt={image.name} key={image.childImageSharp.fluid.src} src={image.childImageSharp.fluid.src} />
-          <p className="legend">{image.name}</p>
-        </div>
-      ))}
-    </Carousel>
-  )
+const ImgCarousel = () => {
+  return <h1>Hello from carousel!</h1>
 }
 
 export default ImgCarousel
