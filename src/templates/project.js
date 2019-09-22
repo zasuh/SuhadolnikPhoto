@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { graphql, Link } from 'gatsby'
+import { graphql } from 'gatsby'
 import styled from 'styled-components'
 
 import { Layout, ProjectHeader, ProjectPagination, SEO, Carousel } from '../components'
@@ -21,16 +21,6 @@ const InnerWrapper = styled.div`
   position: relative;
   max-width: ${props => `${props.theme.maxWidths.project}px`};
   margin: 0 auto;
-`
-
-const Grid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(${props => props.theme.gridColumnsProject}, 1fr);
-  grid-gap: 20px;
-
-  @media (max-width: 768px) {
-    grid-template-columns: 1fr;
-  }
 `
 
 const Project = ({ pageContext: { slug, prev, next }, data: { project: postNode, images } }) => {
