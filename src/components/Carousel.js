@@ -16,5 +16,5 @@ const Carousel = ({ images }) => (
 export default Carousel
 
 Carousel.propTypes = {
-  images: PropTypes.object.isRequired,
+  images: PropTypes.array.isRequired,
 }
