@@ -1,15 +1,10 @@
 /** @jsx jsx */
 import { jsx, Container } from 'theme-ui'
-import Layout from '@lekoarts/gatsby-theme-emilia/src/components/layout'
-import HeaderProject from '@lekoarts/gatsby-theme-emilia/src/components/header-project'
-import ProjectPagination from '@lekoarts/gatsby-theme-emilia/src/components/project-pagination'
-import SEO from '@lekoarts/gatsby-theme-emilia/src/components/seo'
+import PropTypes from 'prop-types'
+import { Layout, ProjectHeader, ProjectPagination, SEO } from '../../../components'
 import Carousel from '../../../components/Carousel'
 
-const Project = ({
-  data: { project, images },
-  pageContext: { prev, next }
-}) => {
+const Project = ({ data: { project, images }, pageContext: { prev, next } }) => {
   return (
     <Layout>
       <SEO
@@ -18,12 +13,7 @@ const Project = ({
         pathname={project.slug}
         image={project.cover.childImageSharp.resize.src}
       />
-      <HeaderProject
-        title={project.title}
-        description={project.body}
-        areas={project.areas}
-        date={project.date}
-      />
+      <ProjectHeader title={project.title} description={project.body} areas={project.areas} date={project.date} />
       <Container sx={{ mt: [`-6rem`, `-6rem`, `-8rem`] }}>
         <Carousel images={images.nodes} />
         <ProjectPagination prev={prev} next={next} />
@@ -33,3 +23,25 @@ const Project = ({
 }
 
 export default Project
+
+Project.propTypes = {
+  pageContext: PropTypes.shape({
+    slug: PropTypes.string.isRequired,
+    next: PropTypes.object,
+    prev: PropTypes.object,
+  }),
+  data: PropTypes.shape({
+    project: PropTypes.object.isRequired,
+    images: PropTypes.object.isRequired,
+    allMdx: PropTypes.shape({
+      nodes: PropTypes.array.isRequired,
+    }),
+  }).isRequired,
+}
+
+Project.defaultProps = {
+  pageContext: PropTypes.shape({
+    next: null,
+    prev: null,
+  }),
+}

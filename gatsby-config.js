@@ -8,19 +8,16 @@ module.exports = {
     siteUrl: config.siteUrl + pathPrefix,
   },
   plugins: [
+    {
+      resolve: `@lekoarts/gatsby-theme-emilia`,
+      options: {},
+    },
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-styled-components',
     {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'projects',
-        path: `${__dirname}/content/projects`,
-      },
-    },
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        name: 'projects-carousel',
         path: `${__dirname}/content/projects`,
       },
     },
