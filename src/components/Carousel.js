@@ -5,7 +5,12 @@ import styled from 'styled-components'
 import 'react-responsive-carousel/lib/styles/carousel.min.css'
 import { Carousel as ResponsiveCarousel } from 'react-responsive-carousel'
 
-const ImgCarousel = styled(ResponsiveCarousel)``
+import Img from 'gatsby-image'
+
+const ImgCarousel = styled(ResponsiveCarousel)`
+  margin: 3rem auto;
+  max-width: 600px;
+`
 
 const Carousel = ({ images }) => (
   <ImgCarousel>

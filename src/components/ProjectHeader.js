@@ -10,6 +10,7 @@ import arrow from '../images/left-chevron.svg'
 const Wrapper = styled.div`
   display: flex;
   position: relative;
+  background-color: #b6b6b6;
 `
 
 const Content = styled.div`
@@ -18,6 +19,7 @@ const Content = styled.div`
   max-width: ${props => props.theme.maxWidths.general};
   padding: 2rem 1.0875rem 13rem 1.0875rem;
   color: ${props => props.theme.colors.secondary};
+  background-color: #b6b6b6;
 `
 
 const Back = styled(Link)`
