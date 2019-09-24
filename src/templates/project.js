@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import styled from 'styled-components'
 
-import { Layout, ProjectHeader, ProjectPagination, SEO, Carousel } from '../components'
+import { Layout, ProjectHeader, ProjectPagination, SEO, Gallery } from '../components'
 import config from '../../config/site'
 
 const BG = styled.div`
@@ -39,7 +39,7 @@ const Project = ({ pageContext: { slug, prev, next }, data: { project: postNode,
       <BG>
         <OuterWrapper>
           <InnerWrapper>
-            <Carousel images={images.nodes} />
+            <Gallery images={images.nodes} />
           </InnerWrapper>
           <ProjectPagination next={next} prev={prev} />
         </OuterWrapper>
