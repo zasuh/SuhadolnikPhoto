@@ -5,9 +5,14 @@ import styled from 'styled-components'
 import 'react-image-gallery/styles/css/image-gallery.css'
 import ImageGallery from 'react-image-gallery'
 
-const ImgGallery = styled(ImageGallery)`
-  margin: 3rem auto;
-  max-width: 600px;
+const GalleryWrapper = styled.div`
+  .image-gallery {
+    max-width: 600px;
+    margin: 3rem auto;
+  }
+  .image-gallery-slide img {
+    width: initial;
+  }
 `
 
 const Gallery = ({ images }) => {
@@ -17,7 +22,11 @@ const Gallery = ({ images }) => {
       thumbnail: item.childImageSharp.fluid.src,
     }
   })
-  return <ImgGallery items={items} />
+  return (
+    <GalleryWrapper>
+      <ImageGallery items={items} />
+    </GalleryWrapper>
+  )
 }
 
 export default Gallery
