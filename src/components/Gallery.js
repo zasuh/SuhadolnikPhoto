@@ -7,8 +7,13 @@ import ImageGallery from 'react-image-gallery'
 
 const GalleryWrapper = styled.div`
   .image-gallery {
-    max-width: 600px;
+    max-width: 700px;
+    max-height: 650px;
     margin: 3rem auto;
+  }
+  .image-gallery-image {
+    text-align: center;
+    background: black;
   }
   .image-gallery-slide img {
     width: initial;
