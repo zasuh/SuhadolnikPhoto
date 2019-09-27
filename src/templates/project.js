@@ -9,7 +9,6 @@ import config from '../../config/site'
 const BG = styled.div`
   background-color: ${props => props.theme.colors.bg};
   position: relative;
-  padding: 2rem 0 0 0;
 `
 
 const OuterWrapper = styled.div`

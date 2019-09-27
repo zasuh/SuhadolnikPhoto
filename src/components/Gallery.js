@@ -13,7 +13,7 @@ const GalleryWrapper = styled.div`
   }
   .image-gallery-image {
     text-align: center;
-    background: black;
+    background: #383838;
   }
   .image-gallery-slide img {
     width: initial;
