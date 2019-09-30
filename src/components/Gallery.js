@@ -15,9 +15,6 @@ const GalleryWrapper = styled.div`
     text-align: center;
     background: #383838;
   }
-  .image-gallery-slide img {
-    width: initial;
-  }
 `
 
 const Gallery = ({ images }) => {

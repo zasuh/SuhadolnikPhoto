@@ -56,6 +56,11 @@ const Text = styled.div`
   color: white;
 `
 
+const TextWrapper = styled.div`
+  background: black;
+  position: relative;
+`
+
 const ProjectHeader = ({ name, title, date, areas, text }) => {
   const titleProps = useSpring({
     config: config.slow,
@@ -85,9 +90,11 @@ const ProjectHeader = ({ name, title, date, areas, text }) => {
               ))}
             </div>
             {text && (
-              <Text>
-                <MDXRenderer>{text}</MDXRenderer>
-              </Text>
+              <TextWrapper>
+                <Text>
+                  <MDXRenderer>{text}</MDXRenderer>
+                </Text>
+              </TextWrapper>
             )}
           </animated.div>
         </Details>
