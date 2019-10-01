@@ -3,7 +3,6 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
 import { useSpring, animated, config } from 'react-spring'
-import { MDXRenderer } from 'gatsby-plugin-mdx'
 
 import arrow from '../images/left-chevron.svg'
 
@@ -50,18 +49,7 @@ const Details = styled.div`
   }
 `
 
-const Text = styled.div`
-  max-width: 750px;
-  margin: 4rem auto 2rem auto;
-  color: white;
-`
-
-const TextWrapper = styled.div`
-  background: black;
-  position: relative;
-`
-
-const ProjectHeader = ({ name, title, date, areas, text }) => {
+const ProjectHeader = ({ name, title, date, areas }) => {
   const titleProps = useSpring({
     config: config.slow,
     delay: 200,
@@ -89,13 +77,6 @@ const ProjectHeader = ({ name, title, date, areas, text }) => {
                 </React.Fragment>
               ))}
             </div>
-            {text && (
-              <TextWrapper>
-                <Text>
-                  <MDXRenderer>{text}</MDXRenderer>
-                </Text>
-              </TextWrapper>
-            )}
           </animated.div>
         </Details>
       </Content>
@@ -110,5 +91,4 @@ ProjectHeader.propTypes = {
   title: PropTypes.string.isRequired,
   date: PropTypes.string.isRequired,
   areas: PropTypes.array.isRequired,
-  text: PropTypes.string.isRequired,
 }

@@ -38,7 +38,7 @@ const Project = ({ pageContext: { slug, prev, next }, data: { project: postNode,
       <BG>
         <OuterWrapper>
           <InnerWrapper>
-            <Gallery images={images.nodes} />
+            <Gallery images={images.nodes} text={postNode.body} />
           </InnerWrapper>
           <ProjectPagination next={next} prev={prev} />
         </OuterWrapper>
