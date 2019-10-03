@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
+import { Link } from 'gatsby'
 
 const Wrapper = styled.div`
   background: url("${props => props.theme.bgPattern}") #b6b6b6;
@@ -33,8 +34,8 @@ const Location = styled.div`
   justify-content: center;
 `
 
-const SocialMedia = styled.div`
-  margin-top: 2rem;
+const Contact = styled(Link)`
+  margin-top: 3rem;
 
   a {
     margin: 0 0.3rem;
@@ -43,18 +44,11 @@ const SocialMedia = styled.div`
   }
 `
 
-const Header = ({ name, location, socialMedia }) => (
+const Header = ({ name }) => (
   <Wrapper>
     <Content>
       <Name>{name}</Name>
-      <Location>{location}</Location>
-      <SocialMedia>
-        {socialMedia.map(social => (
-          <a key={social.name} href={social.url} rel="noopener noreferrer" target="_blank">
-            {social.name}
-          </a>
-        ))}
-      </SocialMedia>
+      <Contact to="/contact/">Contact</Contact>
     </Content>
   </Wrapper>
 )
@@ -63,6 +57,4 @@ export default Header
 
 Header.propTypes = {
   name: PropTypes.string.isRequired,
-  location: PropTypes.string.isRequired,
-  socialMedia: PropTypes.array.isRequired,
 }
