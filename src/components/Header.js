@@ -27,13 +27,6 @@ const Name = styled.h1`
   font-size: 4rem;
 `
 
-const Location = styled.div`
-  font-size: 0.9rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`
-
 const Contact = styled(Link)`
   margin-top: 3rem;
 

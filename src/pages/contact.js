@@ -115,7 +115,7 @@ const contact = () => {
         </Content>
       </BG>
     </Layout>
-  );
+  )
 }
 
 export default contact
