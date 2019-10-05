@@ -6,5 +6,6 @@ import ProjectHeader from './ProjectHeader'
 import ProjectPagination from './ProjectPagination'
 import SEO from './SEO'
 import Gallery from './Gallery'
+import ContactHeader from './ContactHeader'
 
-export { Card, Footer, Header, Layout, ProjectHeader, ProjectPagination, SEO, Gallery }
+export { Card, Footer, Header, Layout, ProjectHeader, ProjectPagination, SEO, Gallery, ContactHeader }

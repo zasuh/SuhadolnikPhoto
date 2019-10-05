@@ -20,11 +20,11 @@ module.exports = {
   location: 'Slovenia',
   socialMedia: [
     {
-      url: 'https://twitter.com/lekoarts_de',
+      url: 'https://www.facebook.com/joze.suhadolnik',
       name: 'Facebook',
     },
     {
-      url: 'https://www.instagram.com/lekoarts.de',
+      url: 'https://www.instagram.com/suhifoto/',
       name: 'Instagram',
     },
   ],
