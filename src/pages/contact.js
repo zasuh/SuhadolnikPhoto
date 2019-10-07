@@ -68,7 +68,7 @@ const contact = () => {
       <BG>
         <ContactHeader links={config.socialMedia} />
         <Content>
-          <Form method="post" action="#">
+          <Form method="POST" netlify-honeypot="bot-field" data-netlify="true">
             <Label>
               Name
               <Input type="text" name="name" id="name" />
