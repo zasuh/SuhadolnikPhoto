@@ -64,3 +64,5 @@ cypress/videos
 
 # Pictures
 *.jpg
+# Local Netlify folder
+.netlify
