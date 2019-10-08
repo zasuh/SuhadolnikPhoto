@@ -20,7 +20,6 @@
     "test:e2e:ci": "cross-env CYPRESS_SUPPORT=y start-server-and-test develop http://localhost:8000 cy:run:ci"
   },
   "dependencies": {
-    "@lekoarts/gatsby-theme-emilia": "^1.0.6",
     "@mdx-js/mdx": "^1.1.5",
     "@mdx-js/react": "^1.1.5",
     "babel-plugin-styled-components": "^1.10.6",

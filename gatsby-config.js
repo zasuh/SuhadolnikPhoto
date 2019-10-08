@@ -8,10 +8,6 @@ module.exports = {
     siteUrl: config.siteUrl + pathPrefix,
   },
   plugins: [
-    {
-      resolve: `@lekoarts/gatsby-theme-emilia`,
-      options: {},
-    },
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-styled-components',
     {
