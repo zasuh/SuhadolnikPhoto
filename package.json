@@ -42,6 +42,7 @@
     "polished": "^3.4.1",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
+    "react-burger-menu": "^2.6.11",
     "react-dom": "^16.8.6",
     "react-google-recaptcha": "^2.0.1",
     "react-helmet": "^5.2.1",

@@ -1,8 +1,10 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { Link } from 'gatsby'
+import { Link, graphql } from 'gatsby'
 import { useSpring, animated, config } from 'react-spring'
 import uuid from 'uuid'
+import { slide as Menu } from 'react-burger-menu'
 import SiteConfig from '../../config/site'
 
 import arrow from '../images/left-chevron.svg'
@@ -73,7 +75,11 @@ const Title = styled(animated.h1)`
   margin: 0 auto;
 `
 
-const ContactHeader = () => {
+const ContactHeader = ({
+  data: {
+    allMdx: { nodes },
+  },
+}) => {
   const titleProps = useSpring({
     config: config.slow,
     delay: 200,
@@ -89,6 +95,15 @@ const ContactHeader = () => {
           <img src={arrow} data-info="back" alt="Back to home" aria-label="Back to home" />
           <Name>{SiteConfig.name}</Name>
         </Back>
+        <Menu right>
+          {nodes.map((project, index) => {
+            return (
+              <a id={index} href={project.fields.slug}>
+                {project.frontmatter.title}
+              </a>
+            )
+          })}
+        </Menu>
         <Details>
           <Title style={titleProps}>Contact</Title>
           <animated.div style={contentProps}>
@@ -113,3 +128,35 @@ const ContactHeader = () => {
 }
 
 export default ContactHeader
+
+ContactHeader.propTypes = {
+  data: PropTypes.shape({
+    allMdx: PropTypes.shape({
+      nodes: PropTypes.array.isRequired,
+    }),
+  }).isRequired,
+}
+
+export const pageQuery = graphql`
+  query ContactQuery {
+    allMdx {
+      nodes {
+        fields {
+          slug
+        }
+        frontmatter {
+          cover {
+            childImageSharp {
+              fluid(maxWidth: 760, quality: 90) {
+                ...GatsbyImageSharpFluid_withWebp
+              }
+            }
+          }
+          date(formatString: "DD.MM.YYYY")
+          title
+          areas
+        }
+      }
+    }
+  }
+`
