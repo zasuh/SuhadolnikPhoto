@@ -51,6 +51,7 @@ const Index = ({
               path={project.fields.slug}
               areas={project.frontmatter.areas}
               key={project.fields.slug}
+              projectData={project}
             />
           ))}
         </Grid>

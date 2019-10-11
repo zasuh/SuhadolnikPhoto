@@ -61,7 +61,7 @@ const Name = styled.h2`
   margin-top: 0;
 `
 
-const Card = ({ path, cover, date, areas, title, delay }) => {
+const Card = ({ path, cover, date, areas, title, delay, projectData }) => {
   const springProps = useSpring({
     config: config.slow,
     delay: 200 * delay,
@@ -71,7 +71,7 @@ const Card = ({ path, cover, date, areas, title, delay }) => {
 
   return (
     <animated.div style={springProps}>
-      <CardItem to={path}>
+      <CardItem to={path} state={{ projectData }}>
         <Cover>
           <Img fluid={cover} />
         </Cover>
@@ -103,4 +103,5 @@ Card.propTypes = {
   areas: PropTypes.array.isRequired,
   title: PropTypes.string.isRequired,
   delay: PropTypes.number.isRequired,
+  projectData: PropTypes.object.isRequired,
 }
