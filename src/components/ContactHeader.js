@@ -3,8 +3,8 @@ import styled from 'styled-components'
 import { Link } from 'gatsby'
 import { useSpring, animated, config } from 'react-spring'
 import uuid from 'uuid'
-import { slide as Menu } from 'react-burger-menu'
 import SiteConfig from '../../config/site'
+import SideBar from './SideBar'
 
 import arrow from '../images/left-chevron.svg'
 
@@ -74,6 +74,12 @@ const Title = styled(animated.h1)`
   margin: 0 auto;
 `
 
+const Menu = styled(SideBar)`
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+`
+
 const ContactHeader = () => {
   const titleProps = useSpring({
     config: config.slow,
@@ -90,7 +96,6 @@ const ContactHeader = () => {
           <img src={arrow} data-info="back" alt="Back to home" aria-label="Back to home" />
           <Name>{SiteConfig.name}</Name>
         </Back>
-        <Menu right />
         <Details>
           <Title style={titleProps}>Contact</Title>
           <animated.div style={contentProps}>
@@ -110,6 +115,7 @@ const ContactHeader = () => {
           </animated.div>
         </Details>
       </Content>
+      <Menu />
     </Wrapper>
   )
 }

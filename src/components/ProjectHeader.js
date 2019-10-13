@@ -3,7 +3,6 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
 import { useSpring, animated, config } from 'react-spring'
-import { slide as Menu } from 'react-burger-menu'
 
 import arrow from '../images/left-chevron.svg'
 
