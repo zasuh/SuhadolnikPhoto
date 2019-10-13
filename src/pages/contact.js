@@ -2,7 +2,7 @@
 /* eslint-disable jsx-a11y/label-has-for */
 import React from 'react'
 import styled from 'styled-components'
-import { Layout, ContactHeader } from '../components'
+import { Layout, ContactHeader, SideBar } from '../components'
 import config from '../../config/site'
 
 const Content = styled.div`
@@ -64,8 +64,9 @@ const Label = styled.label`
 
 const contact = () => {
   return (
-    <Layout customSEO>
-      <BG>
+    <Layout customSEO id="outer-container">
+      <SideBar right pageWrapId="page-wrap" outerContainerId="outer-container" />
+      <BG id="page-wrap">
         <ContactHeader links={config.socialMedia} />
         <Content>
           <Form method="POST" netlify-honeypot="bot-field" data-netlify="true">

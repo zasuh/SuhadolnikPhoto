@@ -4,7 +4,6 @@ import { Link } from 'gatsby'
 import { useSpring, animated, config } from 'react-spring'
 import uuid from 'uuid'
 import SiteConfig from '../../config/site'
-import SideBar from './SideBar'
 
 import arrow from '../images/left-chevron.svg'
 
@@ -84,35 +83,32 @@ const ContactHeader = () => {
   const contentProps = useSpring({ config: config.slow, delay: 600, from: { opacity: 0 }, to: { opacity: 1 } })
 
   return (
-    <div id="outer-container">
-      <SideBar pageWrapId="page-wrap" outerContainerId="outer-container" />
-      <Wrapper id="page-wrap">
-        <Content>
-          <Back to="/">
-            <img src={arrow} data-info="back" alt="Back to home" aria-label="Back to home" />
-            <Name>{SiteConfig.name}</Name>
-          </Back>
-          <Details>
-            <Title style={titleProps}>Contact</Title>
-            <animated.div style={contentProps}>
-              <LinkWrapper>
-                <Links>
-                  {SiteConfig.socialMedia.map(item => {
-                    return (
-                      <li key={uuid.v4()}>
-                        <a target="_blank" rel="noopener noreferrer" href={item.url}>
-                          {item.name}
-                        </a>
-                      </li>
-                    )
-                  })}
-                </Links>
-              </LinkWrapper>
-            </animated.div>
-          </Details>
-        </Content>
-      </Wrapper>
-    </div>
+    <Wrapper id="page-wrap">
+      <Content>
+        <Back to="/">
+          <img src={arrow} data-info="back" alt="Back to home" aria-label="Back to home" />
+          <Name>{SiteConfig.name}</Name>
+        </Back>
+        <Details>
+          <Title style={titleProps}>Contact</Title>
+          <animated.div style={contentProps}>
+            <LinkWrapper>
+              <Links>
+                {SiteConfig.socialMedia.map(item => {
+                  return (
+                    <li key={uuid.v4()}>
+                      <a target="_blank" rel="noopener noreferrer" href={item.url}>
+                        {item.name}
+                      </a>
+                    </li>
+                  )
+                })}
+              </Links>
+            </LinkWrapper>
+          </animated.div>
+        </Details>
+      </Content>
+    </Wrapper>
   )
 }
 

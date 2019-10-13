@@ -3,7 +3,7 @@ import { slide as Menu } from 'react-burger-menu'
 import { Link, useStaticQuery, graphql } from 'gatsby'
 import uuid from 'uuid'
 
-const SideBar = () => {
+const SideBar = props => {
   const styles = {
     bmBurgerButton: {
       position: 'fixed',
@@ -61,7 +61,7 @@ const SideBar = () => {
   `)
 
   return (
-    <Menu right styles={styles}>
+    <Menu {...props} styles={styles}>
       {data.allMdx.nodes.map(item => {
         return (
           <Link id={item.fields.slug} className="menu-item" key={uuid.v4()} to={item.fields.slug}>
