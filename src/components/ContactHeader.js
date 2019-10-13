@@ -74,12 +74,6 @@ const Title = styled(animated.h1)`
   margin: 0 auto;
 `
 
-const Menu = styled(SideBar)`
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-`
-
 const ContactHeader = () => {
   const titleProps = useSpring({
     config: config.slow,
@@ -90,33 +84,35 @@ const ContactHeader = () => {
   const contentProps = useSpring({ config: config.slow, delay: 600, from: { opacity: 0 }, to: { opacity: 1 } })
 
   return (
-    <Wrapper>
-      <Content>
-        <Back to="/">
-          <img src={arrow} data-info="back" alt="Back to home" aria-label="Back to home" />
-          <Name>{SiteConfig.name}</Name>
-        </Back>
-        <Details>
-          <Title style={titleProps}>Contact</Title>
-          <animated.div style={contentProps}>
-            <LinkWrapper>
-              <Links>
-                {SiteConfig.socialMedia.map(item => {
-                  return (
-                    <li key={uuid.v4()}>
-                      <a target="_blank" rel="noopener noreferrer" href={item.url}>
-                        {item.name}
-                      </a>
-                    </li>
-                  )
-                })}
-              </Links>
-            </LinkWrapper>
-          </animated.div>
-        </Details>
-      </Content>
-      <Menu />
-    </Wrapper>
+    <div id="outer-container">
+      <SideBar pageWrapId="page-wrap" outerContainerId="outer-container" />
+      <Wrapper id="page-wrap">
+        <Content>
+          <Back to="/">
+            <img src={arrow} data-info="back" alt="Back to home" aria-label="Back to home" />
+            <Name>{SiteConfig.name}</Name>
+          </Back>
+          <Details>
+            <Title style={titleProps}>Contact</Title>
+            <animated.div style={contentProps}>
+              <LinkWrapper>
+                <Links>
+                  {SiteConfig.socialMedia.map(item => {
+                    return (
+                      <li key={uuid.v4()}>
+                        <a target="_blank" rel="noopener noreferrer" href={item.url}>
+                          {item.name}
+                        </a>
+                      </li>
+                    )
+                  })}
+                </Links>
+              </LinkWrapper>
+            </animated.div>
+          </Details>
+        </Content>
+      </Wrapper>
+    </div>
   )
 }
 

@@ -1,6 +1,6 @@
 import React from 'react'
 import { slide as Menu } from 'react-burger-menu'
-import { useStaticQuery, graphql } from 'gatsby'
+import { Link, useStaticQuery, graphql } from 'gatsby'
 import uuid from 'uuid'
 
 const SideBar = () => {
@@ -61,12 +61,12 @@ const SideBar = () => {
   `)
 
   return (
-    <Menu styles={styles}>
+    <Menu right styles={styles}>
       {data.allMdx.nodes.map(item => {
         return (
-          <a id={item.fields.slug} className="menu-item" key={uuid.v4()} href={item.fields.slug}>
+          <Link id={item.fields.slug} className="menu-item" key={uuid.v4()} to={item.fields.slug}>
             Name
-          </a>
+          </Link>
         )
       })}
     </Menu>
