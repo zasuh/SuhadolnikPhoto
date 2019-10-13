@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import styled from 'styled-components'
 
-import { Layout, ProjectHeader, ProjectPagination, SEO, Gallery } from '../components'
+import { Layout, ProjectHeader, ProjectPagination, SEO, Gallery, SideBar } from '../components'
 import config from '../../config/site'
 
 const BG = styled.div`
@@ -26,7 +26,8 @@ const Project = ({ pageContext: { slug, prev, next }, data: { project: postNode,
   const project = postNode.frontmatter
 
   return (
-    <Layout customSEO>
+    <Layout customSEO id="outer-container">
+      <SideBar right outerContainerId="outer-container" />
       <SEO postPath={slug} postNode={postNode} postSEO />
       <ProjectHeader
         name={config.name}

@@ -1,5 +1,6 @@
 import React from 'react'
 import { slide as Menu } from 'react-burger-menu'
+import styled from 'styled-components'
 import { Link, useStaticQuery, graphql } from 'gatsby'
 import uuid from 'uuid'
 
@@ -9,7 +10,7 @@ const SideBar = props => {
       position: 'fixed',
       width: '36px',
       height: '30px',
-      left: '36px',
+      right: '36px',
       top: '36px',
     },
     bmBurgerBars: {
@@ -30,7 +31,8 @@ const SideBar = props => {
       height: '100%',
     },
     bmMenu: {
-      background: '#373a47',
+      height: '60rem',
+      background: '#242424',
       padding: '2.5em 1.5em 0',
       fontSize: '1.15em',
     },
@@ -42,12 +44,22 @@ const SideBar = props => {
       padding: '0.8em',
     },
     bmItem: {
+      color: 'white',
       display: 'inline-block',
+      textDecoration: 'underline',
     },
     bmOverlay: {
       background: 'rgba(0, 0, 0, 0.3)',
     },
   }
+
+  const SideNavHeader = styled.h2`
+    margin: 0 auto;
+    padding: 0.5em 1em;
+    color: rgba(0, 0, 0, 0.4);
+    box-shadow: inset 0 -1px rgba(0, 0, 0, 0.2);
+  `
+
   const data = useStaticQuery(graphql`
     query SideBarQuery {
       allMdx(sort: { fields: [frontmatter___date], order: DESC }) {
@@ -55,17 +67,23 @@ const SideBar = props => {
           fields {
             slug
           }
+          frontmatter {
+            title
+          }
         }
       }
     }
   `)
 
   return (
-    <Menu {...props} styles={styles}>
+    <Menu {...props} styles={styles} noTransition disableAutoFocus>
+      <SideNavHeader className="menu-item">
+        <span>Stories</span>
+      </SideNavHeader>
       {data.allMdx.nodes.map(item => {
         return (
           <Link id={item.fields.slug} className="menu-item" key={uuid.v4()} to={item.fields.slug}>
-            Name
+            {item.frontmatter.title}
           </Link>
         )
       })}

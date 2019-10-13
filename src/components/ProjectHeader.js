@@ -49,8 +49,7 @@ const Details = styled.div`
   }
 `
 
-const ProjectHeader = ({ name, title, date, areas, projectData }) => {
-  console.log(projectData)
+const ProjectHeader = ({ name, title, date, areas }) => {
   const titleProps = useSpring({
     config: config.slow,
     delay: 200,
@@ -92,5 +91,4 @@ ProjectHeader.propTypes = {
   title: PropTypes.string.isRequired,
   date: PropTypes.string.isRequired,
   areas: PropTypes.array.isRequired,
-  projectData: PropTypes.object.isRequired,
 }
