@@ -1,0 +1,5 @@
+{
+  "devDependencies": {
+    "sparkpost": "^2.1.4"
+  }
+}

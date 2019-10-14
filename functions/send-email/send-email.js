@@ -1,5 +1,6 @@
-const SparkPost = require('sparkpost');
-const client = new SparkPost(process.env.SPARKPOST);
+const SparkPost = require('sparkpost')
+
+const client = new SparkPost(process.env.SPARKPOST)
 
 exports.handler = function(event, context, callback) {
   client.transmissions
@@ -7,9 +8,16 @@ exports.handler = function(event, context, callback) {
       content: {
         from: 'jozesuhadolnik@gmail.com',
         subject: 'Hello, World!',
-        html:
-          "<html><body><p>My cool email.</p></body></html>"
+        html: '<html><body><p>My cool email.</p></body></html>',
       },
-    recipients: [{ address: 'zanesuhi@gmail.com' }]
-  });
+      recipients: [{ address: 'zanesuhi@gmail.com' }],
+    })
+    .then(data => {
+      console.log('Mail has been sent successfully!')
+      console.log(data)
+    })
+    .catch(err => {
+      console.log('Whoops! Something went wrong')
+      console.log(err)
+    })
 }
