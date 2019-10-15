@@ -3,6 +3,8 @@ const SparkPost = require('sparkpost')
 const client = new SparkPost(process.env.SPARKPOST)
 
 exports.handler = function(event, context, callback) {
+  console.log(event)
+  console.log(context)
   client.transmissions
     .send({
       content: {
