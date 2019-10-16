@@ -28,4 +28,5 @@ module.exports = {
       name: 'Instagram',
     },
   ],
+  emailEndpoint: '/.netlify/functions/send-email',
 }

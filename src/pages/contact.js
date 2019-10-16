@@ -1,7 +1,9 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable jsx-a11y/label-has-for */
-import React from 'react'
+import React, { Component } from 'react'
 import styled from 'styled-components'
+// eslint-disable-next-line import/no-unresolved
+import axios from 'axios'
 import { Layout, ContactHeader, SideBar } from '../components'
 import config from '../../config/site'
 
@@ -62,36 +64,80 @@ const Label = styled.label`
   padding: 0.75rem;
 `
 
-const contact = () => {
-  return (
-    <Layout customSEO id="outer-container">
-      <SideBar right pageWrapId="page-wrap" outerContainerId="outer-container" />
-      <BG id="page-wrap">
-        <ContactHeader links={config.socialMedia} />
-        <Content>
-          <Form name="contact" method="POST" netlify-honeypot="bot-field" data-netlify="true">
-            <Label>
-              Name
-              <Input type="text" name="name" id="name" />
-            </Label>
-            <Label>
-              Email
-              <Input type="email" name="email" id="email" />
-            </Label>
-            <Label>
-              Subject
-              <Input type="text" name="subject" id="subject" />
-            </Label>
-            <Label>
-              Message
-              <TextArea name="message" id="message" rows="5" />
-            </Label>
-            <Button type="submit">Send</Button>
-          </Form>
-        </Content>
-      </BG>
-    </Layout>
-  )
-}
+export default class contact extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      name: '',
+      email: '',
+      subject: '',
+      message: '',
+    }
+  }
 
-export default contact
+  handleInputChange = event => {
+    const { target } = event
+    const { value } = target
+    const { name } = target
+    this.setState({
+      [name]: value,
+    })
+  }
+
+  handleSubmit = e => {
+    const { name, email, subject, message } = this.state
+    const data = { name, email, subject, message }
+    axios.post(config.emailEndpoint, JSON.stringify(data)).then(response => {
+      if (response.status !== 200) {
+        this.handleError()
+      } else {
+        console.log('Something went wrong when sending an email')
+      }
+    })
+    e.preventDefault()
+  }
+
+  handleSuccess = () => {
+    this.setState({
+      name: '',
+      email: '',
+      message: '',
+      subject: '',
+    })
+  }
+
+  render() {
+    const { name, email, subject, message } = this.state
+    return (
+      <Layout customSEO id="outer-container">
+        <SideBar right pageWrapId="page-wrap" outerContainerId="outer-container" />
+        <BG id="page-wrap">
+          <ContactHeader links={config.socialMedia} />
+          <Content>
+            <Form name="contact" method="POST" netlify-honeypot="bot-field" data-netlify="true">
+              <Label>
+                Name
+                <Input type="text" name="name" id="name" value={name} onChange={this.handleInputChange} />
+              </Label>
+              <Label>
+                Email
+                <Input type="email" name="email" id="email" value={email} onChange={this.handleInputChange} />
+              </Label>
+              <Label>
+                Subject
+                <Input type="text" name="subject" id="subject" value={subject} onChange={this.handleInputChange} />
+              </Label>
+              <Label>
+                Message
+                <TextArea name="message" id="message" rows="5" value={message} onChange={this.handleInputChange} />
+              </Label>
+              <Button type="submit" onClick={this.handleSubmit}>
+                Send
+              </Button>
+            </Form>
+          </Content>
+        </BG>
+      </Layout>
+    )
+  }
+}

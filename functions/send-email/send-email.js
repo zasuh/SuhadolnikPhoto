@@ -7,8 +7,11 @@ exports.handler = function(event, context, callback) {
   console.log(context)
   client.transmissions
     .send({
+      options: {
+        sandbox: true,
+      },
       content: {
-        from: 'jozesuhadolnik@gmail.com',
+        from: 'testing@sparkpostbox.com',
         subject: 'Hello, World!',
         html: '<html><body><p>My cool email.</p></body></html>',
       },
