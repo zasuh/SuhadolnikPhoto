@@ -89,9 +89,10 @@ export default class contact extends Component {
     const data = { name, email, subject, message }
     axios.post(config.emailEndpoint, JSON.stringify(data)).then(response => {
       if (response.status !== 200) {
-        this.handleError()
-      } else {
         console.log('Something went wrong when sending an email')
+      } else {
+        this.handleSuccess()
+        console.log('Email sent successfully!')
       }
     })
     e.preventDefault()
