@@ -9,8 +9,9 @@ const headers = {
 }
 
 exports.handler = function(event, context, callback) {
+  console.log(event)
   const data = JSON.parse(event.body)
-  const { name, email, subject, message } = data
+  const { email, subject, message } = data
   client.transmissions
     .send({
       options: {

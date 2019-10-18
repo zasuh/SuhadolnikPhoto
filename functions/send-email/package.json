@@ -1,5 +1,11 @@
 {
   "devDependencies": {
     "sparkpost": "^2.1.4"
+  },
+  "dependencies": {
+    "netlify-lambda": "^1.6.0"
+  },
+  "scripts": {
+      "postinstall": "netlify-lambda install"
   }
 }
