@@ -75,7 +75,7 @@ export default class contact extends Component {
         <BG id="page-wrap">
           <ContactHeader links={config.socialMedia} />
           <Content>
-            <Form name="contact" method="POST" netlify-honeypot="bot-field" data-netlify="true">
+            <Form name="contact" action="POST" netlify-honeypot="bot-field" data-netlify="true">
               <Label>
                 Name
                 <Input type="text" name="name" id="name" />
