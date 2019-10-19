@@ -40,19 +40,6 @@ module.exports = {
     },
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
-    {
-      resolve: `gatsby-transformer-remark`,
-      options: {
-        plugins: [
-          {
-            resolve: 'gatsby-remark-normalize-paths',
-            options: {
-              pathFields: ['cover'],
-            },
-          },
-        ],
-      },
-    },
     'gatsby-plugin-lodash',
     'gatsby-plugin-sitemap',
     {

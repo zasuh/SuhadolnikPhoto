@@ -65,16 +65,10 @@ const Label = styled.label`
 export default class contact extends Component {
   constructor(props) {
     super(props)
-    this.state = {
-      name: '',
-      email: '',
-      subject: '',
-      message: '',
-    }
+    this.state = {}
   }
 
   render() {
-    const { name, email, subject, message } = this.state
     return (
       <Layout customSEO id="outer-container">
         <SideBar right pageWrapId="page-wrap" outerContainerId="outer-container" />
@@ -84,19 +78,19 @@ export default class contact extends Component {
             <Form name="contact" method="POST" netlify-honeypot="bot-field" data-netlify="true">
               <Label>
                 Name
-                <Input type="text" name="name" id="name" value={name} />
+                <Input type="text" name="name" id="name" />
               </Label>
               <Label>
                 Email
-                <Input type="email" name="email" id="email" value={email} />
+                <Input type="email" name="email" id="email" />
               </Label>
               <Label>
                 Subject
-                <Input type="text" name="subject" id="subject" value={subject} />
+                <Input type="text" name="subject" id="subject" />
               </Label>
               <Label>
                 Message
-                <TextArea name="message" id="message" rows="5" value={message} />
+                <TextArea name="message" id="message" rows="5" />
               </Label>
               <Label>
                 Upload File
