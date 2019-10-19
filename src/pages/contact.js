@@ -75,7 +75,9 @@ export default class contact extends Component {
         <BG id="page-wrap">
           <ContactHeader links={config.socialMedia} />
           <Content>
-            <Form name="contact" action="POST" netlify-honeypot="bot-field" data-netlify="true">
+            <Form name="contact" method="post" netlify-honeypot="bot-field" data-netlify="true">
+              <input type="hidden" name="bot-field" />
+              <input type="hidden" name="form-name" value="contact" />
               <Label>
                 Name
                 <Input type="text" name="name" id="name" />
@@ -97,7 +99,7 @@ export default class contact extends Component {
                 <Input type="file" name="myfile" id="myfile" placeholder="Upload your file" />
               </Label>
               <div data-netlify-recaptcha="true" />
-              <Button type="submit">Send</Button>
+              <Input type="submit" value="Send Message" />
             </Form>
           </Content>
         </BG>
