@@ -2,13 +2,11 @@
 /* eslint-disable react/self-closing-comp */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable jsx-a11y/label-has-for */
-import React, { Component } from 'react'
+import React from 'react'
 import styled from 'styled-components'
-import Recaptcha from 'react-google-recaptcha'
+import useClipboard from 'react-use-clipboard'
 import { Layout, ContactHeader, SideBar } from '../components'
 import config from '../../config/site'
-
-const RECAPTCHA_KEY = process.env.SITE_RECAPTCHA_KEY
 
 const Content = styled.div`
   margin: 0 auto;
@@ -57,61 +55,60 @@ const Label = styled.label`
   padding: 0.75rem;
 `
 
-export default class contact extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {}
-  }
+const CopyText = styled.div`
+  font-size: 1rem;
+  cursor: pointer;
+  text-decoration: underline;
+  text-align: center;
+  margin: 0.75rem 0 0 0;
+`
 
-  handleRecaptcha = value => {
-    console.log(value)
-  }
-
-  render() {
-    return (
-      <Layout customSEO id="outer-container">
-        <SideBar right pageWrapId="page-wrap" outerContainerId="outer-container" />
-        <BG id="page-wrap">
-          <ContactHeader links={config.socialMedia} />
-          <Content>
-            <Form
-              name="contact"
-              method="post"
-              netlify-honeypot="bot-field"
-              data-netlify="true"
-              data-netlify-recaptcha="true"
-            >
-              <input type="hidden" name="bot-field" />
-              <input type="hidden" name="form-name" value="contact" />
-              <Label>
-                Name
-                <Input type="text" name="name" id="name" />
-              </Label>
-              <Label>
-                Email
-                <Input type="email" name="email" id="email" />
-              </Label>
-              <Label>
-                Subject
-                <Input type="text" name="subject" id="subject" />
-              </Label>
-              <Label>
-                Message
-                <TextArea name="message" id="message" rows="5" />
-              </Label>
-              <Label>
-                Upload File
-                <Input type="file" name="file" id="file" placeholder="Upload your file" />
-              </Label>
-              <Recaptcha
-                sitekey={RECAPTCHA_KEY !== undefined ? RECAPTCHA_KEY : 101010}
-                onChange={this.handleRecaptcha}
-              />
-              <Input type="submit" value="Send Message" />
-            </Form>
-          </Content>
-        </BG>
-      </Layout>
-    )
-  }
+const Contact = () => {
+  const [isCopied, setCopied] = useClipboard('jozesuhadolnik@gmail.com', {
+    successDuration: 4000,
+  })
+  return (
+    <Layout customSEO id="outer-container">
+      <SideBar right pageWrapId="page-wrap" outerContainerId="outer-container" />
+      <BG id="page-wrap">
+        <ContactHeader links={config.socialMedia} />
+        <CopyText onClick={() => setCopied(true)}>{isCopied ? 'Copied!' : 'Click to copy Email to clipboard'}</CopyText>
+        <Content>
+          <Form
+            name="contact"
+            method="post"
+            netlify-honeypot="bot-field"
+            data-netlify="true"
+            data-netlify-recaptcha="true"
+          >
+            <input type="hidden" name="bot-field" />
+            <input type="hidden" name="form-name" value="contact" />
+            <Label>
+              Name
+              <Input type="text" name="name" id="name" />
+            </Label>
+            <Label>
+              Email
+              <Input type="email" name="email" id="email" />
+            </Label>
+            <Label>
+              Subject
+              <Input type="text" name="subject" id="subject" />
+            </Label>
+            <Label>
+              Message
+              <TextArea name="message" id="message" rows="5" />
+            </Label>
+            <Label>
+              Upload File
+              <Input type="file" name="file" id="file" placeholder="Upload your file" />
+            </Label>
+            <Input type="submit" value="Send Message" />
+          </Form>
+        </Content>
+      </BG>
+    </Layout>
+  )
 }
+
+export default Contact
