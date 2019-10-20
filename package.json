@@ -48,6 +48,7 @@
     "react": "^16.8.6",
     "react-burger-menu": "^2.6.11",
     "react-dom": "^16.8.6",
+    "react-google-recaptcha": "^2.0.1",
     "react-helmet": "^5.2.1",
     "react-image-gallery": "^0.9.1",
     "react-offcanvas": "^0.4.0",

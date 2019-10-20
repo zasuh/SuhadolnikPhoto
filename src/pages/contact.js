@@ -1,9 +1,14 @@
+/* eslint-disable react/no-string-refs */
+/* eslint-disable react/self-closing-comp */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable jsx-a11y/label-has-for */
 import React, { Component } from 'react'
 import styled from 'styled-components'
+import Recaptcha from 'react-google-recaptcha'
 import { Layout, ContactHeader, SideBar } from '../components'
 import config from '../../config/site'
+
+const RECAPTCHA_KEY = process.env.SITE_RECAPTCHA_KEY
 
 const Content = styled.div`
   margin: 0 auto;
@@ -48,16 +53,6 @@ const TextArea = styled.textarea`
   min-height: 150px;
 `
 
-const Button = styled.button`
-  text-transform: uppercase;
-  height: 2rem;
-  width: 30%;
-  max-width: 100%;
-  border-radius: 0;
-  border: 0.1rem solid black;
-  margin: 0 auto;
-`
-
 const Label = styled.label`
   padding: 0.75rem;
 `
@@ -68,6 +63,10 @@ export default class contact extends Component {
     this.state = {}
   }
 
+  handleRecaptcha = value => {
+    console.log(value)
+  }
+
   render() {
     return (
       <Layout customSEO id="outer-container">
@@ -75,7 +74,13 @@ export default class contact extends Component {
         <BG id="page-wrap">
           <ContactHeader links={config.socialMedia} />
           <Content>
-            <Form name="contact" method="post" netlify-honeypot="bot-field" data-netlify="true">
+            <Form
+              name="contact"
+              method="post"
+              netlify-honeypot="bot-field"
+              data-netlify="true"
+              data-netlify-recaptcha="true"
+            >
               <input type="hidden" name="bot-field" />
               <input type="hidden" name="form-name" value="contact" />
               <Label>
@@ -96,9 +101,12 @@ export default class contact extends Component {
               </Label>
               <Label>
                 Upload File
-                <Input type="file" name="myfile" id="myfile" placeholder="Upload your file" />
+                <Input type="file" name="file" id="file" placeholder="Upload your file" />
               </Label>
-              <div data-netlify-recaptcha="true" />
+              <Recaptcha
+                sitekey={RECAPTCHA_KEY !== undefined ? RECAPTCHA_KEY : 101010}
+                onChange={this.handleRecaptcha}
+              />
               <Input type="submit" value="Send Message" />
             </Form>
           </Content>
