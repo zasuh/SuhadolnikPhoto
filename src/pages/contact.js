@@ -1,3 +1,4 @@
+/* eslint-disable prefer-destructuring */
 /* eslint-disable react/no-string-refs */
 /* eslint-disable react/self-closing-comp */
 /* eslint-disable jsx-a11y/label-has-associated-control */
@@ -7,6 +8,8 @@ import styled from 'styled-components'
 import useClipboard from 'react-use-clipboard'
 import { Layout, ContactHeader, SideBar } from '../components'
 import config from '../../config/site'
+
+const E_MAIL = process.env.E_MAIL
 
 const Content = styled.div`
   margin: 0 auto;
@@ -33,7 +36,7 @@ const Form = styled.form`
     font-size: inherit;
     border: none;
     outline: none;
-    padding: 1em;
+    padding: 0.5em;
   }
 `
 
@@ -42,6 +45,14 @@ const Input = styled.input`
   max-width: 100%;
   box-sizing: border-box;
   border-radius: 0;
+`
+
+const Send = styled.input`
+  width: 25%;
+  max-width: 100%;
+  box-sizing: border-box;
+  border-radius: 0;
+  margin: 0 auto;
 `
 
 const TextArea = styled.textarea`
@@ -64,7 +75,7 @@ const CopyText = styled.div`
 `
 
 const Contact = () => {
-  const [isCopied, setCopied] = useClipboard('jozesuhadolnik@gmail.com', {
+  const [isCopied, setCopied] = useClipboard(E_MAIL, {
     successDuration: 4000,
   })
   return (
@@ -97,13 +108,13 @@ const Contact = () => {
             </Label>
             <Label>
               Message
-              <TextArea name="message" id="message" rows="5" />
+              <TextArea name="message" id="message" rows="9" />
             </Label>
             <Label>
               Upload File
               <Input type="file" name="file" id="file" placeholder="Upload your file" />
             </Label>
-            <Input type="submit" value="Send Message" />
+            <Send type="submit" value="Send Message" />
           </Form>
         </Content>
       </BG>
