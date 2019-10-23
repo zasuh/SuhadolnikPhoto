@@ -8,5 +8,18 @@ import SEO from './SEO'
 import Gallery from './Gallery'
 import ContactHeader from './ContactHeader'
 import SideBar from './SideBar'
+import AboutHeader from './AboutHeader'
 
-export { SideBar, Card, Footer, Header, Layout, ProjectHeader, ProjectPagination, SEO, Gallery, ContactHeader }
+export {
+  SideBar,
+  Card,
+  Footer,
+  Header,
+  Layout,
+  ProjectHeader,
+  ProjectPagination,
+  SEO,
+  Gallery,
+  ContactHeader,
+  AboutHeader,
+}
