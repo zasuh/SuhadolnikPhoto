@@ -37,7 +37,6 @@ exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
 
   const projectTemplate = require.resolve('./src/templates/project.js')
-  const aboutTemplate = require.resolve('./src/templates/about.js')
 
   const result = await wrapper(
     graphql(`
@@ -57,24 +56,7 @@ exports.createPages = async ({ graphql, actions }) => {
     `)
   )
 
-  const aboutResult = await wrapper(
-    graphql(`
-      {
-        allMdx(sort: { fields: [frontmatter___date], order: DESC }) {
-          edges {
-            node {
-              frontmatter {
-                title
-              }
-            }
-          }
-        }
-      }
-    `)
-  )
-
   const projectPosts = result.data.projects.nodes
-  const aboutBody = aboutResult.data.node
 
   projectPosts.forEach((n, index) => {
     const next = index === 0 ? null : projectPosts[index - 1]
@@ -90,14 +72,6 @@ exports.createPages = async ({ graphql, actions }) => {
         prev,
         next,
       },
-    })
-  })
-
-  aboutBody.forEach(({ node }) => {
-    createPage({
-      path: node.frontmatter.path,
-      component: aboutTemplate,
-      context: {}, // additional data can be passed via context
     })
   })
 }
