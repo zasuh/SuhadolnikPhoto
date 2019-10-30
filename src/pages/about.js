@@ -10,7 +10,7 @@ const BG = styled.div`
 
 const Bio = styled.div`
   font-size: 1rem;
-  max-width: 600px;
+  max-width: 700px;
   margin: 0 auto;
   padding: 10px 0 0 0;
 `

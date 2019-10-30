@@ -29,6 +29,17 @@ const Name = styled.h1`
 
 const Contact = styled(Link)`
   margin-top: 3rem;
+  padding: 0 1rem 0 0;
+
+  a {
+    margin: 0 0.3rem;
+    color: black;
+    text-decoration: underline;
+  }
+`
+
+const Bio = styled(Link)`
+  margin-top: 3rem;
 
   a {
     margin: 0 0.3rem;
@@ -42,6 +53,7 @@ const Header = ({ name }) => (
     <Content>
       <Name>{name}</Name>
       <Contact to="/contact/">Contact</Contact>
+      <Bio to="/about/">Biography</Bio>
     </Content>
   </Wrapper>
 )

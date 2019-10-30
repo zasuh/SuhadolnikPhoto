@@ -69,7 +69,7 @@ const AboutHeader = () => {
           <Name>{SiteConfig.name}</Name>
         </Back>
         <Details>
-          <Title style={titleProps}>Bio</Title>
+          <Title style={titleProps}>Biography</Title>
         </Details>
       </Content>
     </Wrapper>
