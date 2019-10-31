@@ -10,13 +10,13 @@ const BG = styled.div`
 
 const Bio = styled.div`
   font-size: 1rem;
-  max-width: 700px;
+  max-width: 600px;
   margin: 0 auto;
   padding: 10px 0 0 0;
 `
 
 const Exhibitions = styled.ul`
-  max-width: 650px;
+  max-width: 600px;
   margin: 0 auto;
 `
 
