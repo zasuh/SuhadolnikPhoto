@@ -2,12 +2,12 @@
 // http://www.heropatterns.com/
 
 module.exports = {
-  bgPattern: '',
+  bgPattern: '#383838',
   colors: {
     bg: '#383838',
     color: 'white',
-    dark_bg: 'black',
-    secondary: 'black',
+    dark_bg: '#383838',
+    secondary: '#383838',
     footer: 'white',
     link: '#383838',
     linkHover: '#79a8ff',

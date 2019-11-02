@@ -15,7 +15,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    background: url("${props => props.theme.bgPattern}") #000;
+    background: url("${props => props.theme.bgPattern}") #383838;
   }
 
   h1, h2, h3, h4, h5, h6 {
