@@ -16,6 +16,9 @@ const GalleryWrapper = styled.div`
     text-align: center;
     background: #383838;
   }
+  .image-gallery-slides {
+    max-height: 650px;
+  }
 `
 
 const Text = styled.div`
