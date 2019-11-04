@@ -19,6 +19,15 @@ const GalleryWrapper = styled.div`
   .image-gallery-slides {
     max-height: 650px;
   }
+  .image-gallery-content.fullscreen {
+    .image-gallery-slide img {
+      width: auto;
+      max-height: 60vh;
+    }
+    .image-gallery-image {
+      text-align: center;
+    }
+  }
 `
 
 const Text = styled.div`
