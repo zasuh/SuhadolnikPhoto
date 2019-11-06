@@ -31,7 +31,7 @@ const SideBar = props => {
       height: '100%',
     },
     bmMenu: {
-      height: '60rem',
+      height: '100vh',
       background: '#242424',
       padding: '2.5em 1.5em 0',
       fontSize: '1.15em',
@@ -77,9 +77,7 @@ const SideBar = props => {
 
   return (
     <Menu {...props} styles={styles} noTransition disableAutoFocus>
-      <SideNavHeader className="menu-item">
-        <span>Stories</span>
-      </SideNavHeader>
+      <SideNavHeader className="menu-item">Stories</SideNavHeader>
       {data.allMdx.nodes.map(item => {
         return (
           <Link id={item.fields.slug} className="menu-item" key={uuid.v4()} to={item.fields.slug}>
