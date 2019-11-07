@@ -12,12 +12,13 @@ const Bio = styled.div`
   font-size: 1rem;
   max-width: 600px;
   margin: 0 auto;
-  padding: 10px 0 0 0;
+  padding: 15px;
 `
 
 const Exhibitions = styled.ul`
   max-width: 600px;
   margin: 0 auto;
+  padding: 30px;
 `
 
 const Title = styled.h3`

@@ -8,10 +8,10 @@ const SideBar = props => {
   const styles = {
     bmBurgerButton: {
       position: 'fixed',
-      width: '36px',
-      height: '30px',
-      right: '36px',
-      top: '36px',
+      width: '30px',
+      height: '25px',
+      right: '30px',
+      top: '30px',
     },
     bmBurgerBars: {
       background: '#373a47',
@@ -29,6 +29,7 @@ const SideBar = props => {
     bmMenuWrap: {
       position: 'fixed',
       height: '100%',
+      width: '270px',
     },
     bmMenu: {
       height: '100vh',
@@ -45,7 +46,7 @@ const SideBar = props => {
     },
     bmItem: {
       color: 'white',
-      display: 'inline-block',
+      // display: 'inline-block',
       textDecoration: 'underline',
     },
     bmOverlay: {
