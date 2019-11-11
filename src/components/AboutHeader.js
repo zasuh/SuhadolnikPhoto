@@ -52,9 +52,63 @@ const Details = styled.div`
 const Title = styled(animated.h1)`
   max-width: 200px;
   margin: 0 auto;
+  padding: 0 0 20px 0;
 `
 
-const AboutHeader = () => {
+const About = styled(Link)`
+  margin-top: 3rem;
+  padding: 0 1rem 0 0;
+
+  a {
+    margin: 0 0.3rem;
+    color: black;
+    text-decoration: underline;
+  }
+`
+
+const Exhibitions = styled(Link)`
+  margin-top: 3rem;
+  padding: 0 1rem 0 0;
+
+  a {
+    margin: 0 0.3rem;
+    color: black;
+    text-decoration: underline;
+  }
+`
+
+const Books = styled(Link)`
+  margin-top: 3rem;
+
+  a {
+    margin: 0 0.3rem;
+    color: black;
+    text-decoration: underline;
+  }
+`
+
+const AboutHeader = location => {
+  const getHeaderContent = () => {
+    if (location.location.path.includes('about') === true) {
+      return (
+        <Details>
+          <Title style={titleProps}>Biography</Title>
+          <Exhibitions to="/exhibitions/">Exhibitions</Exhibitions>
+          <Books to="/books/">Books</Books>
+        </Details>
+      )
+    }
+    if (location.location.path.includes('about') === false) {
+      return (
+        <Details>
+          <Title style={titleProps}>Biography</Title>
+          <About to="/about/">About</About>
+          <Exhibitions to="/exhibitions/">Exhibitions</Exhibitions>
+          <Books to="/books/">Books</Books>
+        </Details>
+      )
+    }
+  }
   const titleProps = useSpring({
     config: config.slow,
     delay: 200,
@@ -68,9 +122,7 @@ const AboutHeader = () => {
           <img src={arrow} data-info="back" alt="Back to home" aria-label="Back to home" />
           <Name>{SiteConfig.name}</Name>
         </Back>
-        <Details>
-          <Title style={titleProps}>Biography</Title>
-        </Details>
+        {getHeaderContent()}
       </Content>
     </Wrapper>
   )
