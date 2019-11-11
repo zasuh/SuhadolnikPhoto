@@ -63,9 +63,9 @@ const About = () => {
         <Title>Books</Title>
         <WrapperBooksGrid>
           <BooksGrid>
-            <img src="https://via.placeholder.com/300" />
+            <img src="https://via.placeholder.com/300" alt="" />
             <p>Text for book</p>
-            <img src="https://via.placeholder.com/300" />
+            <img src="https://via.placeholder.com/300" alt="" />
             <p>Text for book 2</p>
           </BooksGrid>
         </WrapperBooksGrid>
