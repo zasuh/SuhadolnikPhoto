@@ -41,7 +41,7 @@ const Name = styled(animated.h4)`
 
 const Details = styled.div`
   width: 100%;
-  margin-top: 6rem;
+  margin-top: 1rem;
   text-align: center;
 
   h1 {

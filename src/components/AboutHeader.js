@@ -88,33 +88,13 @@ const Books = styled(Link)`
 `
 
 const AboutHeader = location => {
-  const getHeaderContent = () => {
-    if (location.location.path.includes('about') === true) {
-      return (
-        <Details>
-          <Title style={titleProps}>Biography</Title>
-          <Exhibitions to="/exhibitions/">Exhibitions</Exhibitions>
-          <Books to="/books/">Books</Books>
-        </Details>
-      )
-    }
-    if (location.location.path.includes('about') === false) {
-      return (
-        <Details>
-          <Title style={titleProps}>Biography</Title>
-          <About to="/about/">About</About>
-          <Exhibitions to="/exhibitions/">Exhibitions</Exhibitions>
-          <Books to="/books/">Books</Books>
-        </Details>
-      )
-    }
-  }
   const titleProps = useSpring({
     config: config.slow,
     delay: 200,
     from: { opacity: 0, transform: 'translate3d(0, 30px, 0)' },
     to: { opacity: 1, transform: 'translate3d(0, 0, 0)' },
   })
+
   return (
     <Wrapper id="page-wrap">
       <Content>
@@ -122,7 +102,12 @@ const AboutHeader = location => {
           <img src={arrow} data-info="back" alt="Back to home" aria-label="Back to home" />
           <Name>{SiteConfig.name}</Name>
         </Back>
-        {getHeaderContent()}
+        <Details>
+          <Title style={titleProps}>Biography</Title>
+          <About to="/about/">About</About>
+          <Exhibitions to="/exhibitions/">Exhibitions</Exhibitions>
+          <Books to="/books/">Books</Books>
+        </Details>
       </Content>
     </Wrapper>
   )

@@ -22,11 +22,11 @@ const Title = styled.h3`
   text-decoration: underline;
 `
 
-const About = props => {
+const About = () => {
   return (
     <Layout customSEO id="outer-container">
       <SideBar right pageWrapId="page-wrap" outerContainerId="outer-container" />
-      <AboutHeader location={props} />
+      <AboutHeader />
       <BG id="page-wrap">
         <Title>About</Title>
         <Bio>{config.bio}</Bio>
