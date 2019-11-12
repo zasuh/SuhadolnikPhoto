@@ -55,6 +55,14 @@ module.exports = {
         icon: 'src/favicon.png',
       },
     },
+    {
+      resolve: `gatsby-plugin-i18next`,
+      options: {
+        availableLngs: ['en', 'sl'],
+        fallbackLng: 'en',
+        debug: true,
+      },
+    },
     'gatsby-plugin-offline',
     'gatsby-plugin-netlify',
   ],

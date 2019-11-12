@@ -9,6 +9,7 @@ import Gallery from './Gallery'
 import ContactHeader from './ContactHeader'
 import SideBar from './SideBar'
 import AboutHeader from './AboutHeader'
+import Switcher from './LangSwitcher'
 
 export {
   SideBar,
@@ -22,4 +23,5 @@ export {
   Gallery,
   ContactHeader,
   AboutHeader,
+  Switcher,
 }
