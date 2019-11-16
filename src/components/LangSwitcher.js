@@ -23,4 +23,4 @@ const Switcher = ({ changeLng, lng, availableLngs }) => {
   )
 }
 
-export default Switcher
+export default props => <Language>{lngProps => <Switcher {...props} {...lngProps} />}</Language>
