@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import Switcher from './LangSwitcher'
 
 const Content = styled.footer`
   color: ${props => props.theme.colors.footer};
@@ -18,7 +17,6 @@ const Footer = () => (
     <a href="https://github.com/LekoArts/gatsby-starter-portfolio-emilia" target="_blank" rel="noopener noreferrer">
       Terms and conditions.
     </a>
-    <Switcher />
   </Content>
 )
 

@@ -1,4 +1,5 @@
 import React from 'react'
+import { translate } from 'react-i18next'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
@@ -48,18 +49,21 @@ const Bio = styled(Link)`
   }
 `
 
-const Header = ({ name }) => (
-  <Wrapper>
-    <Content>
-      <Name>{name}</Name>
-      <Contact to="/contact/">Contact</Contact>
-      <Bio to="/about/">Biography</Bio>
-    </Content>
-  </Wrapper>
-)
+const Header = ({ name, t }) => {
+  return (
+    <Wrapper>
+      <Content>
+        <Name>{name}</Name>
+        <Contact to="/contact/">{t('contact')}</Contact>
+        <Bio to="/about/">{t('biography')}</Bio>
+      </Content>
+    </Wrapper>
+  )
+}
 
-export default Header
+export default translate('Header')(Header)
 
 Header.propTypes = {
   name: PropTypes.string.isRequired,
+  t: PropTypes.string.isRequired,
 }
