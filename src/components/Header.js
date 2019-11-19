@@ -1,5 +1,5 @@
 import React from 'react'
-import { translate } from 'react-i18next'
+import { withTranslation } from 'react-i18next'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
@@ -50,6 +50,7 @@ const Bio = styled(Link)`
 `
 
 const Header = ({ name, t }) => {
+  console.log(t)
   return (
     <Wrapper>
       <Content>
@@ -61,9 +62,9 @@ const Header = ({ name, t }) => {
   )
 }
 
-export default translate('Header')(Header)
+export default withTranslation('Header')(Header)
 
 Header.propTypes = {
   name: PropTypes.string.isRequired,
-  t: PropTypes.string.isRequired,
+  t: PropTypes.func.isRequired,
 }
