@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Suspense } from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import styled from 'styled-components'
@@ -37,26 +37,28 @@ const Index = ({
     allMdx: { nodes },
   },
 }) => (
-  <Layout>
-    <Header avatar={config.avatar} name={config.name} location={config.location} socialMedia={config.socialMedia} />
-    <BG>
-      <Content>
-        <Grid>
-          {nodes.map((project, index) => (
-            <Card
-              delay={index}
-              date={project.frontmatter.date}
-              title={project.frontmatter.title}
-              cover={project.frontmatter.cover.childImageSharp.fluid}
-              path={project.fields.slug}
-              areas={project.frontmatter.areas}
-              key={project.fields.slug}
-            />
-          ))}
-        </Grid>
-      </Content>
-    </BG>
-  </Layout>
+  <Suspense fallback="loading">
+    <Layout>
+      <Header avatar={config.avatar} name={config.name} location={config.location} socialMedia={config.socialMedia} />
+      <BG>
+        <Content>
+          <Grid>
+            {nodes.map((project, index) => (
+              <Card
+                delay={index}
+                date={project.frontmatter.date}
+                title={project.frontmatter.title}
+                cover={project.frontmatter.cover.childImageSharp.fluid}
+                path={project.fields.slug}
+                areas={project.frontmatter.areas}
+                key={project.fields.slug}
+              />
+            ))}
+          </Grid>
+        </Content>
+      </BG>
+    </Layout>
+  </Suspense>
 )
 
 export default Index
