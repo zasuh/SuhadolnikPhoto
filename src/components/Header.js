@@ -1,5 +1,4 @@
 import React from 'react'
-import { withTranslation, useTranslation } from 'react-i18next'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
@@ -49,28 +48,19 @@ const Bio = styled(Link)`
   }
 `
 
-// eslint-disable-next-line react/prop-types
-const MyComponent = ({ name }) => {
-  const { t } = useTranslation()
-
-  return (
-    <Content>
-      <Name>{name}</Name>
-      <Contact to="/contact/">{t('contact')}</Contact>
-      <Bio to="/about/">{t('biography')}</Bio>
-    </Content>
-  )
-}
-
 const Header = ({ name }) => {
   return (
     <Wrapper>
-      <MyComponent name={name} />
+      <Content>
+        <Name>{name}</Name>
+        <Contact to="/contact/">Contact</Contact>
+        <Bio to="/about/">Biography</Bio>
+      </Content>
     </Wrapper>
   )
 }
 
-export default withTranslation('Header')(Header)
+export default Header
 
 Header.propTypes = {
   name: PropTypes.string.isRequired,
