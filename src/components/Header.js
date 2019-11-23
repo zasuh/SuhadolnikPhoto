@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
+import { FormattedMessage } from 'react-intl'
 
 const Wrapper = styled.div`
   background: url("${props => props.theme.bgPattern}") #b6b6b6;
@@ -53,8 +54,12 @@ const Header = ({ name }) => {
     <Wrapper>
       <Content>
         <Name>{name}</Name>
-        <Contact to="/contact/">Contact</Contact>
-        <Bio to="/about/">Biography</Bio>
+        <Contact to="/contact/">
+          <FormattedMessage id="contact" />
+        </Contact>
+        <Bio to="/about/">
+          <FormattedMessage id="biography" />
+        </Bio>
       </Content>
     </Wrapper>
   )

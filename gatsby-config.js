@@ -1,4 +1,5 @@
 const config = require('./config/site')
+const languages = require('./src/data/languages')
 
 const pathPrefix = config.pathPrefix === '/' ? '' : config.pathPrefix
 
@@ -6,6 +7,7 @@ module.exports = {
   pathPrefix: config.pathPrefix,
   siteMetadata: {
     siteUrl: config.siteUrl + pathPrefix,
+    languages,
   },
   plugins: [
     'gatsby-plugin-react-helmet',
@@ -60,8 +62,10 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-i18n',
       options: {
-        langKeyDefault: 'en',
-        useLangKeyLayout: false,
+        langKeyForNull: 'any',
+        langKeyDefault: languages.defaultLangKey,
+        useLangKeyLayout: true,
+        prefixDefault: false,
       },
     },
   ],
