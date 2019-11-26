@@ -11,6 +11,9 @@ import SideBar from './SideBar'
 import AboutHeader from './AboutHeader'
 import LangSwitcher from './LangSwitcher'
 
+import LayoutEN from '../layouts/en'
+import LayoutSL from '../layouts/sl'
+
 export {
   SideBar,
   Card,
@@ -24,4 +27,6 @@ export {
   ContactHeader,
   AboutHeader,
   LangSwitcher,
+  LayoutEN,
+  LayoutSL,
 }

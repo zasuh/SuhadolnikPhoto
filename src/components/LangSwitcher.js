@@ -30,8 +30,8 @@ const LangSwitcher = ({ langs }) => {
   )
 }
 
-LangSwitcher.PropTypes = {
-  langs: PropTypes.array,
+LangSwitcher.propTypes = {
+  langs: PropTypes.array.isRequired,
 }
 
 export default LangSwitcher

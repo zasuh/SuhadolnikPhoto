@@ -75,7 +75,7 @@ const Layout = ({ children, customSEO, location, i18nMessages }) => {
                 <noscript>To browse this site, please enable JavaScript.</noscript>
                 <AbsoluteWrapper>
                   {children}
-                  <Footer />
+                  <Footer langs={langsMenu} />
                 </AbsoluteWrapper>
               </>
             </ThemeProvider>

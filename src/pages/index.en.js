@@ -4,7 +4,7 @@ import { graphql } from 'gatsby'
 import { Location } from '@reach/router'
 import styled from 'styled-components'
 
-import { Card, Header, Layout } from '../components'
+import { Card, Header, LayoutEN } from '../components'
 import config from '../../config/site'
 
 const Grid = styled.div`
@@ -41,7 +41,7 @@ const Index = ({
   <Location>
     {locationProps => {
       return (
-        <Layout {...locationProps}>
+        <LayoutEN {...locationProps}>
           <Header
             avatar={config.avatar}
             name={config.name}
@@ -65,7 +65,7 @@ const Index = ({
               </Grid>
             </Content>
           </BG>
-        </Layout>
+        </LayoutEN>
       )
     }}
   </Location>
@@ -82,7 +82,7 @@ Index.propTypes = {
 }
 
 export const pageQuery = graphql`
-  query HomeQuery {
+  query HomeQueryEn {
     allMdx(sort: { fields: [frontmatter___date], order: DESC }) {
       nodes {
         fields {
