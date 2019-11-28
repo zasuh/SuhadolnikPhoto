@@ -2,9 +2,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled, { createGlobalStyle, ThemeProvider } from 'styled-components'
-import { StaticQuery, graphql } from 'gatsby'
-import { getCurrentLangKey, getLangs, getUrlForLang } from 'ptz-i18n'
-import { IntlProvider } from 'react-intl'
 
 import { SEO, Footer } from './index'
 import theme from '../../config/theme'
@@ -41,48 +38,19 @@ const AbsoluteWrapper = styled.main`
 `
 
 // eslint-disable-next-line react/prop-types
-const Layout = ({ children, customSEO, location, i18nMessages }) => {
+const Layout = ({ children, customSEO }) => {
   return (
-    <StaticQuery
-      query={graphql`
-        query LayoutQuery {
-          site {
-            siteMetadata {
-              languages {
-                defaultLangKey
-                langs
-              }
-            }
-          }
-        }
-      `}
-      render={data => {
-        // eslint-disable-next-line react/prop-types
-        const url = location.pathname
-        const { langs, defaultLangKey } = data.site.siteMetadata.languages
-        const langKey = getCurrentLangKey(langs, defaultLangKey, url)
-        const homeLink = `/${langKey}`.replace(`/${defaultLangKey}/`, '/')
-        const langsMenu = getLangs(langs, langKey, getUrlForLang(homeLink, url)).map(item => ({
-          ...item,
-          link: item.link.replace(`/${defaultLangKey}/`, '/'),
-        }))
-        return (
-          <IntlProvider locale={langKey} messages={i18nMessages}>
-            <ThemeProvider theme={theme}>
-              <>
-                {!customSEO && <SEO />}
-                <GlobalStyle />
-                <noscript>To browse this site, please enable JavaScript.</noscript>
-                <AbsoluteWrapper>
-                  {children}
-                  <Footer langs={langsMenu} />
-                </AbsoluteWrapper>
-              </>
-            </ThemeProvider>
-          </IntlProvider>
-        )
-      }}
-    />
+    <ThemeProvider theme={theme}>
+      <>
+        {!customSEO && <SEO />}
+        <GlobalStyle />
+        <noscript>To browse this site, please enable JavaScript.</noscript>
+        <AbsoluteWrapper>
+          {children}
+          <Footer />
+        </AbsoluteWrapper>
+      </>
+    </ThemeProvider>
   )
 }
 

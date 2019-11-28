@@ -4,7 +4,7 @@
 module.exports = {
   bgPattern: '#383838',
   colors: {
-    bg: '#383838',
+    bg: '#b6b6b6',
     color: 'white',
     dark_bg: '#383838',
     secondary: '#383838',

@@ -1,10 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
-import { Location } from '@reach/router'
 import styled from 'styled-components'
 
-import { Card, Header, LayoutEN } from '../components'
+import { Card, Header, Layout } from '../components'
 import config from '../../config/site'
 
 const Grid = styled.div`
@@ -37,39 +36,30 @@ const Index = ({
   data: {
     allMdx: { nodes },
   },
-}) => (
-  <Location>
-    {locationProps => {
-      return (
-        <LayoutEN {...locationProps}>
-          <Header
-            avatar={config.avatar}
-            name={config.name}
-            location={config.location}
-            socialMedia={config.socialMedia}
-          />
-          <BG>
-            <Content>
-              <Grid>
-                {nodes.map((project, index) => (
-                  <Card
-                    delay={index}
-                    date={project.frontmatter.date}
-                    title={project.frontmatter.title}
-                    cover={project.frontmatter.cover.childImageSharp.fluid}
-                    path={project.fields.slug}
-                    areas={project.frontmatter.areas}
-                    key={project.fields.slug}
-                  />
-                ))}
-              </Grid>
-            </Content>
-          </BG>
-        </LayoutEN>
-      )
-    }}
-  </Location>
-)
+}) => {
+  return (
+    <Layout>
+      <Header avatar={config.avatar} name={config.name} location={config.location} socialMedia={config.socialMedia} />
+      <BG>
+        <Content>
+          <Grid>
+            {nodes.map((project, index) => (
+              <Card
+                delay={index}
+                date={project.frontmatter.date}
+                title={project.frontmatter.title}
+                cover={project.frontmatter.cover.childImageSharp.fluid}
+                path={project.fields.slug}
+                areas={project.frontmatter.areas}
+                key={project.fields.slug}
+              />
+            ))}
+          </Grid>
+        </Content>
+      </BG>
+    </Layout>
+  )
+}
 
 export default Index
 

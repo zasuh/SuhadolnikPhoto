@@ -1,8 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import { Link } from 'gatsby'
-import { FormattedMessage } from 'react-intl'
+import { useIntl, Link } from 'gatsby-plugin-intl'
 
 const Wrapper = styled.div`
   background: url("${props => props.theme.bgPattern}") #b6b6b6;
@@ -50,16 +49,13 @@ const Bio = styled(Link)`
 `
 
 const Header = ({ name }) => {
+  const intl = useIntl()
   return (
     <Wrapper>
       <Content>
         <Name>{name}</Name>
-        <Contact to="/contact/">
-          <FormattedMessage id="contact" />
-        </Contact>
-        <Bio to="/about/">
-          <FormattedMessage id="biography" />
-        </Bio>
+        <Contact to="/contact/">{intl.formatMessage({ id: 'contact' })}</Contact>
+        <Bio to="/about/">{intl.formatMessage({ id: 'biography' })}</Bio>
       </Content>
     </Wrapper>
   )
