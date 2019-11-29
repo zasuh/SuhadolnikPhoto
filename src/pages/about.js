@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
+import { useIntl } from 'gatsby-plugin-intl'
 import { Layout, AboutHeader, SideBar } from '../components'
-import config from '../../config/about'
 
 const BG = styled.div`
   background-color: ${props => props.theme.colors.bg};
@@ -23,13 +23,14 @@ const Title = styled.h3`
 `
 
 const About = () => {
+  const intl = useIntl()
   return (
     <Layout customSEO id="outer-container">
       <SideBar right pageWrapId="page-wrap" outerContainerId="outer-container" />
       <AboutHeader />
       <BG id="page-wrap">
-        <Title>About</Title>
-        <Bio>{config.bio}</Bio>
+        <Title>{intl.formatMessage({ id: 'biography' })}</Title>
+        <Bio>{intl.formatMessage({ id: 'about' })}</Bio>
       </BG>
     </Layout>
   )

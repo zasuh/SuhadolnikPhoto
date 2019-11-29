@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { useIntl } from 'gatsby-plugin-intl'
 import { Link } from 'gatsby'
 import { useSpring, animated, config } from 'react-spring'
 import SiteConfig from '../../config/site'
@@ -88,6 +89,7 @@ const Books = styled(Link)`
 `
 
 const AboutHeader = location => {
+  const intl = useIntl()
   const titleProps = useSpring({
     config: config.slow,
     delay: 200,
@@ -103,10 +105,10 @@ const AboutHeader = location => {
           <Name>{SiteConfig.name}</Name>
         </Back>
         <Details>
-          <Title style={titleProps}>Biography</Title>
-          <About to="/about/">About</About>
-          <Exhibitions to="/exhibitions/">Exhibitions</Exhibitions>
-          <Books to="/books/">Books</Books>
+          <Title style={titleProps}>{intl.formatMessage({ id: 'biography' })}</Title>
+          <About to="/about/">{intl.formatMessage({ id: 'biography' })}</About>
+          <Exhibitions to="/exhibitions/">{intl.formatMessage({ id: 'exhibitions_link' })}</Exhibitions>
+          <Books to="/books/">{intl.formatMessage({ id: 'books_link' })}</Books>
         </Details>
       </Content>
     </Wrapper>
