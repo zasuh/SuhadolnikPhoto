@@ -2,7 +2,9 @@
   "contact" : "Contact",
   "biography" : "Biography",
   "about": "Jože was born in the midst of the revolutionary 1960s in Ljubljana, Slovenia (Yugoslavia at the time). At the age of 16 he was already earning money as a photographer for the Yugoslav press agency Tanjug and magazine Mladina. In the early 1990s he was a photojournalist for a Slovenian newspaper Dnevnik and continued to take photos for Mladina. In 1993, he was one of the founders of a Slovene photo agency Bobo, whilst he was working with Reuters, Associated Press and EPA. From 1999 to 2005, he was a photograph for Delo revije, now he works for the Slovene leading daily Delo.",
+  "biography_link": "Biography",
   "exhibitions_link": "Exhibitions",
+  "exhibitions_title": "Exhibitions",
   "books_link": "Books",
   "exhibitionList": [
     "1984 Portraits, ŠKUC Gallery, Ljubljana, Slovenia",
@@ -35,5 +37,14 @@
     "2010 Portraits of Slovenian Poets and Writers, Mestna Hiša, Ljubljana, Slovenia",
     "2010 NSK 1980-2000, Korotan Gallery, Viena, Austria",
     "2012 Album, NSK, Jakopič Gallery, Ljubljana, Slovenia"
-  ]
+  ],
+  "copied": "Copied!",
+  "clickToCopy": "Click to copy Email to clipboard",
+  "contact_title": "Contact",
+  "contact_name": "Name",
+  "contact_email": "Email",
+  "contact_subject": "Subject",
+  "contact_message": "Message",
+  "contact_upload_file": "Upload File",
+  "contact_send_msg": "Send Message"
 }

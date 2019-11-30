@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { useIntl } from 'gatsby-plugin-intl'
 import uuid from 'uuid'
 import { Layout, AboutHeader, SideBar } from '../components'
 import config from '../../config/about'
@@ -23,12 +24,15 @@ const Title = styled.h3`
 `
 
 const About = () => {
+  const intl = useIntl()
+  const exhibitionList = intl.formatMessage({ id: 'exhibitionList' })
+  console.log(exhibitionList)
   return (
     <Layout customSEO id="outer-container">
       <SideBar right pageWrapId="page-wrap" outerContainerId="outer-container" />
       <AboutHeader />
       <BG id="page-wrap">
-        <Title>Exhibitions</Title>
+        <Title>{intl.formatMessage({ id: 'exhibitions_title' })}</Title>
         <Exhibitions>
           {config.exhibitionList.map(item => {
             return <li key={uuid.v4()}>{item}</li>

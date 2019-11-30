@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'gatsby'
+import { useIntl } from 'gatsby-plugin-intl'
 import { useSpring, animated, config } from 'react-spring'
 import uuid from 'uuid'
 import SiteConfig from '../../config/site'
@@ -10,7 +11,7 @@ import arrow from '../images/left-chevron.svg'
 const Wrapper = styled.div`
   display: flex;
   position: relative;
-  background-color: #b6b6b6;
+  background-color: #6b6b6b;
 `
 
 const Content = styled.div`
@@ -19,7 +20,7 @@ const Content = styled.div`
   max-width: ${props => props.theme.maxWidths.general};
   padding: 2rem 1.0875rem 3rem 1.0875rem;
   color: ${props => props.theme.colors.secondary};
-  background-color: #b6b6b6;
+  background-color: #6b6b6b;
 `
 
 const Back = styled(Link)`
@@ -81,6 +82,7 @@ const ContactHeader = () => {
     to: { opacity: 1, transform: 'translate3d(0, 0, 0)' },
   })
   const contentProps = useSpring({ config: config.slow, delay: 600, from: { opacity: 0 }, to: { opacity: 1 } })
+  const intl = useIntl()
 
   return (
     <Wrapper id="page-wrap">
@@ -90,7 +92,7 @@ const ContactHeader = () => {
           <Name>{SiteConfig.name}</Name>
         </Back>
         <Details>
-          <Title style={titleProps}>Contact</Title>
+          <Title style={titleProps}>{intl.formatMessage({ id: 'contact_title' })}</Title>
           <animated.div style={contentProps}>
             <LinkWrapper>
               <Links>

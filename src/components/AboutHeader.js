@@ -10,7 +10,7 @@ import arrow from '../images/left-chevron.svg'
 const Wrapper = styled.div`
   display: flex;
   position: relative;
-  background-color: #b6b6b6;
+  background-color: #6b6b6b;
 `
 
 const Content = styled.div`
@@ -19,7 +19,7 @@ const Content = styled.div`
   max-width: ${props => props.theme.maxWidths.general};
   padding: 2rem 1.0875rem 3rem 1.0875rem;
   color: ${props => props.theme.colors.secondary};
-  background-color: #b6b6b6;
+  background-color: #6b6b6b;
 `
 
 const Back = styled(Link)`
@@ -88,7 +88,7 @@ const Books = styled(Link)`
   }
 `
 
-const AboutHeader = location => {
+const AboutHeader = () => {
   const intl = useIntl()
   const titleProps = useSpring({
     config: config.slow,
@@ -106,7 +106,7 @@ const AboutHeader = location => {
         </Back>
         <Details>
           <Title style={titleProps}>{intl.formatMessage({ id: 'biography' })}</Title>
-          <About to="/about/">{intl.formatMessage({ id: 'biography' })}</About>
+          <About to="/about/">{intl.formatMessage({ id: 'biography_link' })}</About>
           <Exhibitions to="/exhibitions/">{intl.formatMessage({ id: 'exhibitions_link' })}</Exhibitions>
           <Books to="/books/">{intl.formatMessage({ id: 'books_link' })}</Books>
         </Details>

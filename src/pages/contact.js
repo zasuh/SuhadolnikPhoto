@@ -5,6 +5,7 @@
 /* eslint-disable jsx-a11y/label-has-for */
 import React from 'react'
 import styled from 'styled-components'
+import { useIntl } from 'gatsby-plugin-intl'
 import useClipboard from 'react-use-clipboard'
 import { Layout, ContactHeader, SideBar } from '../components'
 import config from '../../config/site'
@@ -78,12 +79,15 @@ const Contact = () => {
   const [isCopied, setCopied] = useClipboard(E_MAIL, {
     successDuration: 4000,
   })
+  const intl = useIntl()
   return (
     <Layout customSEO id="outer-container">
       <SideBar right pageWrapId="page-wrap" outerContainerId="outer-container" />
       <BG id="page-wrap">
         <ContactHeader links={config.socialMedia} />
-        <CopyText onClick={() => setCopied(true)}>{isCopied ? 'Copied!' : 'Click to copy Email to clipboard'}</CopyText>
+        <CopyText onClick={() => setCopied(true)}>
+          {isCopied ? intl.formatMessage({ id: 'copied' }) : intl.formatMessage({ id: 'clickToCopy' })}
+        </CopyText>
         <Content>
           <Form
             name="contact"
@@ -95,26 +99,26 @@ const Contact = () => {
             <input type="hidden" name="bot-field" />
             <input type="hidden" name="form-name" value="contact" />
             <Label>
-              Name
+              {intl.formatMessage({ id: 'contact_name' })}
               <Input type="text" name="name" id="name" />
             </Label>
             <Label>
-              Email
+              {intl.formatMessage({ id: 'contact_email' })}
               <Input type="email" name="email" id="email" />
             </Label>
             <Label>
-              Subject
+              {intl.formatMessage({ id: 'contact_subject' })}
               <Input type="text" name="subject" id="subject" />
             </Label>
             <Label>
-              Message
+              {intl.formatMessage({ id: 'contact_message' })}
               <TextArea name="message" id="message" rows="9" />
             </Label>
             <Label>
-              Upload File
+              {intl.formatMessage({ id: 'contact_upload_file' })}
               <Input type="file" name="file" id="file" placeholder="Upload your file" />
             </Label>
-            <Send type="submit" value="Send Message" />
+            <Send type="submit" value={intl.formatMessage({ id: 'contact_send_msg' })} />
           </Form>
         </Content>
       </BG>

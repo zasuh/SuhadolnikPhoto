@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import { useIntl, Link } from 'gatsby-plugin-intl'
 
 const Wrapper = styled.div`
-  background: url("${props => props.theme.bgPattern}") #b6b6b6;
+  background: url("${props => props.theme.bgPattern}") #6b6b6b;
   display: flex;
   position: relative;
 `
