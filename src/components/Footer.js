@@ -13,12 +13,12 @@ const Content = styled.footer`
 
 const Footer = () => (
   <Content>
+    <Languages />
     &copy; 2019 by Žane Suhadolnik. Original theme by LekoArts - Emilia. Pictures by Jože Suhadolnik.
     <br />
     <a href="https://github.com/LekoArts/gatsby-starter-portfolio-emilia" target="_blank" rel="noopener noreferrer">
       Terms and conditions.
     </a>
-    <Languages />
   </Content>
 )
 

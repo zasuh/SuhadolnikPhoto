@@ -18,7 +18,7 @@ const Languages = () => {
               onKeyDown={() => {}}
               role="button"
               tabIndex="0"
-              style={{ paddingTop: 20, margin: 10, cursor: `pointer` }}
+              style={{ margin: 15, cursor: `pointer` }}
             >
               {languageName[language]}
             </a>
