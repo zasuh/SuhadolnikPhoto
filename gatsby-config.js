@@ -70,5 +70,12 @@ module.exports = {
         redirect: true,
       },
     },
+    {
+      resolve: 'gatsby-plugin-i18n',
+      options: {
+        langKeyDefault: 'en',
+        useLangKeyLayout: false,
+      },
+    },
   ],
 }
