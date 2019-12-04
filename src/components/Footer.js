@@ -11,14 +11,18 @@ const Content = styled.footer`
   background: ${props => props.theme.colors.bg};
 `
 
+const Terms = styled.a`
+  text-decoration: underline;
+`
+
 const Footer = () => (
   <Content>
     <Languages />
     &copy; 2019 by Žane Suhadolnik. Original theme by LekoArts - Emilia. Pictures by Jože Suhadolnik.
     <br />
-    <a href="https://github.com/LekoArts/gatsby-starter-portfolio-emilia" target="_blank" rel="noopener noreferrer">
+    <Terms href="https://github.com/LekoArts/gatsby-starter-portfolio-emilia" target="_blank" rel="noopener noreferrer">
       Terms and conditions.
-    </a>
+    </Terms>
   </Content>
 )
 

@@ -13,9 +13,12 @@ const Content = styled.div`
   margin: 0 auto;
   max-width: ${props => props.theme.maxWidths.general};
   padding: 3rem 1.0875rem 3rem 1.0875rem;
-  color: ${props => props.theme.colors.secondary};
+  color: ${props => props.theme.colors.color};
   text-align: center;
   height: 400px;
+  a {
+    text-decoration: underline;
+  }
   @media (max-width: ${props => props.theme.breakpoints.s}) {
     height: 500px;
   }
@@ -33,7 +36,7 @@ const Contact = styled(Link)`
 
   a {
     margin: 0 0.3rem;
-    color: black;
+    color: white;
     text-decoration: underline;
   }
 `

@@ -1,4 +1,5 @@
 import React from 'react'
+import styled from 'styled-components'
 import { IntlContextConsumer, changeLocale } from 'gatsby-plugin-intl'
 
 const languageName = {
@@ -6,9 +7,13 @@ const languageName = {
   sl: 'SL',
 }
 
+const Wrapper = styled.div`
+  padding-bottom: 1rem;
+`
+
 const Languages = () => {
   return (
-    <div>
+    <Wrapper>
       <IntlContextConsumer>
         {({ languages }) =>
           languages.map(language => (
@@ -18,14 +23,14 @@ const Languages = () => {
               onKeyDown={() => {}}
               role="button"
               tabIndex="0"
-              style={{ margin: 15, cursor: `pointer` }}
+              style={{ margin: 15, cursor: `pointer`, textDecoration: `underline` }}
             >
               {languageName[language]}
             </a>
           ))
         }
       </IntlContextConsumer>
-    </div>
+    </Wrapper>
   )
 }
 

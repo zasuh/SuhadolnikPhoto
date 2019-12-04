@@ -59,32 +59,32 @@ const Title = styled(animated.h1)`
 const About = styled(Link)`
   margin-top: 3rem;
   padding: 0 1rem 0 0;
+  text-decoration: underline;
 
   a {
     margin: 0 0.3rem;
     color: black;
-    text-decoration: underline;
   }
 `
 
 const Exhibitions = styled(Link)`
   margin-top: 3rem;
   padding: 0 1rem 0 0;
+  text-decoration: underline;
 
   a {
     margin: 0 0.3rem;
     color: black;
-    text-decoration: underline;
   }
 `
 
 const Books = styled(Link)`
   margin-top: 3rem;
+  text-decoration: underline;
 
   a {
     margin: 0 0.3rem;
     color: black;
-    text-decoration: underline;
   }
 `
 
