@@ -15,24 +15,15 @@ const Exhibitions = styled.ul`
   padding: 30px;
 `
 
-const Title = styled.h3`
-  max-width: 600px;
-  margin: 0 auto;
-  text-align: center;
-  padding: 40px 0 20px 0;
-  text-decoration: underline;
-`
-
 const About = () => {
   const intl = useIntl()
-  const exhibitionList = intl.formatMessage({ id: 'exhibitionList' })
+  const exhibitionList = intl.formatMessage({ id: 'exhibitionList' }) // Looping over this doesn't work
   console.log(exhibitionList)
   return (
     <Layout customSEO id="outer-container">
       <SideBar right pageWrapId="page-wrap" outerContainerId="outer-container" />
       <AboutHeader />
       <BG id="page-wrap">
-        <Title>{intl.formatMessage({ id: 'exhibitions_title' })}</Title>
         <Exhibitions>
           {config.exhibitionList.map(item => {
             return <li key={uuid.v4()}>{item}</li>
