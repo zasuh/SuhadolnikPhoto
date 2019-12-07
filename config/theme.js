@@ -10,6 +10,7 @@ module.exports = {
     secondary: 'white',
     footer: 'white',
     link: 'white',
+    card_bg: '#6b6b6b',
     linkHover: '#79a8ff',
   },
   maxWidths: {

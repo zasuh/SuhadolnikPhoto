@@ -14,14 +14,6 @@ const Bio = styled.div`
   padding: 15px;
 `
 
-const Title = styled.h3`
-  max-width: 600px;
-  margin: 0 auto;
-  text-align: center;
-  padding: 40px 0 20px 0;
-  text-decoration: underline;
-`
-
 const About = () => {
   const intl = useIntl()
   return (

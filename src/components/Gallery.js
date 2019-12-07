@@ -35,6 +35,7 @@ const Text = styled.div`
   margin: 1rem auto;
   padding-top: 1rem;
   color: white;
+  text-align: center;
 `
 
 const Gallery = ({ images, text }) => {
@@ -51,7 +52,7 @@ const Gallery = ({ images, text }) => {
           <MDXRenderer>{text}</MDXRenderer>
         </Text>
       )}
-      <ImageGallery items={items} />
+      <ImageGallery items={items} disableSwipe />
     </GalleryWrapper>
   )
 }

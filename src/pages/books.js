@@ -6,14 +6,6 @@ const BG = styled.div`
   background-color: ${props => props.theme.colors.bg};
 `
 
-const Title = styled.h3`
-  max-width: 600px;
-  margin: 0 auto;
-  text-align: center;
-  padding: 40px 0 20px 0;
-  text-decoration: underline;
-`
-
 const WrapperBooksGrid = styled.div`
   margin: 0 auto 0 auto;
   max-width: 600px;

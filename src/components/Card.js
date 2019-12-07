@@ -37,7 +37,7 @@ const Content = styled.div`
   position: relative;
   transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
   opacity: 0;
-  background: ${props => rgba(props.theme.colors.link, 0.65)};
+  background: ${props => rgba(props.theme.colors.card_bg, 0.65)};
   height: 0;
 
   ${CardItem}:hover & {
