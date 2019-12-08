@@ -21,6 +21,7 @@ const About = () => {
       <SideBar right pageWrapId="page-wrap" outerContainerId="outer-container" />
       <AboutHeader />
       <BG id="page-wrap">
+        <img src="../../content/assets/portrait.jpg" alt="" />
         <Bio>{intl.formatMessage({ id: 'about' })}</Bio>
       </BG>
     </Layout>
