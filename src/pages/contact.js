@@ -7,7 +7,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { useIntl } from 'gatsby-plugin-intl'
 import useClipboard from 'react-use-clipboard'
-import { Layout, ContactHeader, SideBar } from '../components'
+import { Layout, ContactHeader } from '../components'
 import config from '../../config/site'
 
 const E_MAIL = process.env.E_MAIL
@@ -81,8 +81,7 @@ const Contact = () => {
   })
   const intl = useIntl()
   return (
-    <Layout customSEO id="outer-container">
-      <SideBar right pageWrapId="page-wrap" outerContainerId="outer-container" />
+    <Layout>
       <BG id="page-wrap">
         <ContactHeader links={config.socialMedia} />
         <CopyText onClick={() => setCopied(true)}>

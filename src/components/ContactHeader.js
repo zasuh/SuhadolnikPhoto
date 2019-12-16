@@ -5,7 +5,7 @@ import { useIntl } from 'gatsby-plugin-intl'
 import { useSpring, animated, config } from 'react-spring'
 import uuid from 'uuid'
 import SiteConfig from '../../config/site'
-
+import SideBar from './SideBar'
 import arrow from '../images/left-chevron.svg'
 
 const Wrapper = styled.div`
@@ -28,6 +28,7 @@ const Back = styled(Link)`
   flex-direction: row;
   align-items: center;
   justify-content: flex-start;
+  width: 20%;
 
   img[data-info='back'] {
     width: 1.5rem;
@@ -74,6 +75,13 @@ const Title = styled(animated.h1)`
   margin: 0 auto;
 `
 
+const Drawer = styled(SideBar)`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+`
+
 const ContactHeader = () => {
   const titleProps = useSpring({
     config: config.slow,
@@ -91,6 +99,7 @@ const ContactHeader = () => {
           <img src={arrow} data-info="back" alt="Back to home" aria-label="Back to home" />
           <Name>{SiteConfig.name}</Name>
         </Back>
+        <Drawer />
         <Details>
           <Title style={titleProps}>{intl.formatMessage({ id: 'contact_title' })}</Title>
           <animated.div style={contentProps}>
