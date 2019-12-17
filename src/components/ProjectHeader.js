@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
 import { useSpring, animated, config } from 'react-spring'
+import SideBar from './SideBar'
 
 import arrow from '../images/left-chevron.svg'
 
@@ -49,6 +50,15 @@ const Details = styled.div`
   }
 `
 
+const Drawer = styled(SideBar)`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  position: relative;
+  bottom: 15%;
+`
+
 const ProjectHeader = ({ name, title, date, areas }) => {
   const titleProps = useSpring({
     config: config.slow,
@@ -65,6 +75,7 @@ const ProjectHeader = ({ name, title, date, areas }) => {
           <img src={arrow} data-info="back" alt="Back to home" aria-label="Back to home" />
           <Name>{name}</Name>
         </Back>
+        <Drawer />
         <Details>
           <animated.h1 style={titleProps}>{title}</animated.h1>
           <animated.div style={contentProps}>

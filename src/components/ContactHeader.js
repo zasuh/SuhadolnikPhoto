@@ -80,6 +80,8 @@ const Drawer = styled(SideBar)`
   flex-direction: row;
   align-items: center;
   justify-content: flex-end;
+  position: relative;
+  bottom: 15%;
 `
 
 const ContactHeader = () => {

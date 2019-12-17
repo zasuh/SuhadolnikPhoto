@@ -26,6 +26,8 @@ const SidebarWrapper = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: flex-end;
+  position: relative;
+  bottom: 15%;
 `
 
 const SideBar = () => {
@@ -66,7 +68,7 @@ const SideBar = () => {
       <List>
         {['Stories'].map(text => (
           <ListItem button key={text}>
-            <ListItemText primary={text} />
+            <ListItemText primary={text} style={{ color: grey[50] }} />
           </ListItem>
         ))}
       </List>
