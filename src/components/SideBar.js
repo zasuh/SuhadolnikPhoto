@@ -16,18 +16,17 @@ const useStyles = makeStyles({
   list: {
     width: 350,
   },
+  listItemText: {
+    fontSize: '1.3em',
+    fontFamily: 'Roboto',
+  },
   paper: {
     backgroundColor: grey[800],
   },
 })
 
-const SidebarWrapper = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: flex-end;
-  position: relative;
-  bottom: 15%;
+const DrawerButton = styled(Button)`
+  float: right;
 `
 
 const SideBar = () => {
@@ -67,8 +66,8 @@ const SideBar = () => {
     >
       <List>
         {['Stories'].map(text => (
-          <ListItem button key={text}>
-            <ListItemText primary={text} style={{ color: grey[50] }} />
+          <ListItem key={text}>
+            <ListItemText primary={text} style={{ color: grey[50] }} classes={{ primary: classes.listItemText }} />
           </ListItem>
         ))}
       </List>
@@ -78,7 +77,7 @@ const SideBar = () => {
           return (
             <ListItem button key={item}>
               <Link id={item.fields.slug} key={item} to={item.fields.slug}>
-                <ListItemText primary={item.frontmatter.title} />
+                <ListItemText primary={item.frontmatter.title} classes={{ primary: classes.listItemText }} />
               </Link>
             </ListItem>
           )
@@ -88,10 +87,10 @@ const SideBar = () => {
   )
 
   return (
-    <SidebarWrapper>
-      <Button onClick={toggleDrawer('right', true)}>
+    <div>
+      <DrawerButton onClick={toggleDrawer('right', true)}>
         <MenuRoundedIcon style={{ color: grey[50] }} />
-      </Button>
+      </DrawerButton>
       <Drawer
         anchor="right"
         open={state.right}
@@ -100,7 +99,7 @@ const SideBar = () => {
       >
         {sideList('right')}
       </Drawer>
-    </SidebarWrapper>
+    </div>
   )
 }
 

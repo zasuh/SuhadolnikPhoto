@@ -80,8 +80,6 @@ const Drawer = styled(SideBar)`
   flex-direction: row;
   align-items: center;
   justify-content: flex-end;
-  position: relative;
-  bottom: 15%;
 `
 
 const ContactHeader = () => {
@@ -97,11 +95,11 @@ const ContactHeader = () => {
   return (
     <Wrapper id="page-wrap">
       <Content>
+        <Drawer />
         <Back to="/">
           <img src={arrow} data-info="back" alt="Back to home" aria-label="Back to home" />
           <Name>{SiteConfig.name}</Name>
         </Back>
-        <Drawer />
         <Details>
           <Title style={titleProps}>{intl.formatMessage({ id: 'contact_title' })}</Title>
           <animated.div style={contentProps}>

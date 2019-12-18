@@ -4,6 +4,7 @@ import { useIntl } from 'gatsby-plugin-intl'
 import { Link } from 'gatsby'
 import { useSpring, animated, config } from 'react-spring'
 import SiteConfig from '../../config/site'
+import SideBar from './SideBar'
 
 import arrow from '../images/left-chevron.svg'
 
@@ -88,6 +89,13 @@ const Books = styled(Link)`
   }
 `
 
+const Drawer = styled(SideBar)`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+`
+
 const AboutHeader = () => {
   const intl = useIntl()
   const titleProps = useSpring({
@@ -100,6 +108,7 @@ const AboutHeader = () => {
   return (
     <Wrapper id="page-wrap">
       <Content>
+        <Drawer />
         <Back to="/">
           <img src={arrow} data-info="back" alt="Back to home" aria-label="Back to home" />
           <Name>{SiteConfig.name}</Name>

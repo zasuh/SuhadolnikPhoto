@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { useIntl } from 'gatsby-plugin-intl'
-import { Layout, AboutHeader, SideBar } from '../components'
+import { Layout, AboutHeader } from '../components'
 
 const BG = styled.div`
   background-color: ${props => props.theme.colors.bg};
@@ -17,8 +17,7 @@ const Bio = styled.div`
 const About = () => {
   const intl = useIntl()
   return (
-    <Layout customSEO id="outer-container">
-      <SideBar right pageWrapId="page-wrap" outerContainerId="outer-container" />
+    <Layout>
       <AboutHeader />
       <BG id="page-wrap">
         <img src="../../content/assets/portrait.jpg" alt="" />

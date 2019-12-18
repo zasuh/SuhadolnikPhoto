@@ -55,8 +55,6 @@ const Drawer = styled(SideBar)`
   flex-direction: row;
   align-items: center;
   justify-content: flex-end;
-  position: relative;
-  bottom: 15%;
 `
 
 const ProjectHeader = ({ name, title, date, areas }) => {
@@ -71,11 +69,11 @@ const ProjectHeader = ({ name, title, date, areas }) => {
   return (
     <Wrapper>
       <Content>
+        <Drawer />
         <Back to="/">
           <img src={arrow} data-info="back" alt="Back to home" aria-label="Back to home" />
           <Name>{name}</Name>
         </Back>
-        <Drawer />
         <Details>
           <animated.h1 style={titleProps}>{title}</animated.h1>
           <animated.div style={contentProps}>
