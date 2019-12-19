@@ -3,32 +3,8 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
 
-import 'react-image-gallery/styles/css/image-gallery.css'
-import ImageGallery from 'react-image-gallery'
-
-const GalleryWrapper = styled.div`
-  .image-gallery {
-    max-width: 700px;
-    max-height: 650px;
-    margin: 3rem auto;
-  }
-  .image-gallery-image {
-    text-align: center;
-    background: #383838;
-  }
-  .image-gallery-slides {
-    max-height: 650px;
-  }
-  .image-gallery-content.fullscreen {
-    .image-gallery-slide img {
-      width: auto;
-      max-height: 60vh;
-    }
-    .image-gallery-image {
-      text-align: center;
-    }
-  }
-`
+import AwesomeSlider from 'react-awesome-slider'
+import 'react-awesome-slider/dist/styles.css'
 
 const Text = styled.div`
   max-width: 450px;
@@ -36,6 +12,22 @@ const Text = styled.div`
   padding-top: 1rem;
   color: white;
   text-align: center;
+  padding-bottom: 1rem;
+`
+
+const Slider = styled(AwesomeSlider)`
+  .awssld__content > img {
+    object-fit: scale-down;
+  }
+  .awssld__bullets .awssld__bullets--active {
+    background: white;
+  }
+  .awssld__bullets button {
+    background: white;
+    width: 5px;
+    height: 5px;
+    margin: 10px;
+  }
 `
 
 const Gallery = ({ images, text }) => {
@@ -46,14 +38,18 @@ const Gallery = ({ images, text }) => {
     }
   })
   return (
-    <GalleryWrapper>
+    <div>
       {text && (
         <Text>
           <MDXRenderer>{text}</MDXRenderer>
         </Text>
       )}
-      <ImageGallery items={items} disableSwipe />
-    </GalleryWrapper>
+      <Slider bullets>
+        {items.map(item => {
+          return <div data-src={item.original} />
+        })}
+      </Slider>
+    </div>
   )
 }
 

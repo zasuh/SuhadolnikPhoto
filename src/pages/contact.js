@@ -54,6 +54,7 @@ const Send = styled.input`
   box-sizing: border-box;
   border-radius: 0;
   margin: 0 auto;
+  white-space: normal;
 `
 
 const TextArea = styled.textarea`

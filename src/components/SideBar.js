@@ -18,7 +18,11 @@ const useStyles = makeStyles({
   },
   listItemText: {
     fontSize: '1.3em',
-    fontFamily: 'Roboto',
+    fontFamily: 'Fira Sans, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif',
+  },
+  listItemHeader: {
+    fontSize: '1.8em',
+    fontFamily: 'Fira Sans, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif',
   },
   paper: {
     backgroundColor: grey[800],
@@ -65,9 +69,9 @@ const SideBar = () => {
       onKeyDown={toggleDrawer(side, false)}
     >
       <List>
-        {['Stories'].map(text => (
+        {['Stories / Zgodbe'].map(text => (
           <ListItem key={text}>
-            <ListItemText primary={text} style={{ color: grey[50] }} classes={{ primary: classes.listItemText }} />
+            <ListItemText primary={text} style={{ color: grey[50] }} classes={{ primary: classes.listItemHeader }} />
           </ListItem>
         ))}
       </List>
