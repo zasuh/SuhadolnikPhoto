@@ -16,6 +16,9 @@ const Text = styled.div`
 `
 
 const Slider = styled(AwesomeSlider)`
+  --loader-bar-color: white;
+  --organic-arrow-thickness: 1px;
+
   .awssld__content > img {
     object-fit: scale-down;
   }
@@ -27,6 +30,18 @@ const Slider = styled(AwesomeSlider)`
     width: 5px;
     height: 5px;
     margin: 10px;
+  }
+`
+
+const SliderWrapper = styled.div`
+  .awssld {
+    --loader-bar-color: white;
+    --organic-arrow-thickness: 1px;
+    --content-background-color: #6a6a6a;
+    --organic-arrow-color: var(--control-button-background);
+  }
+  .awssld:hover {
+    --organic-arrow-color: white;
   }
 `
 
@@ -44,11 +59,13 @@ const Gallery = ({ images, text }) => {
           <MDXRenderer>{text}</MDXRenderer>
         </Text>
       )}
-      <Slider bullets>
-        {items.map(item => {
-          return <div data-src={item.original} />
-        })}
-      </Slider>
+      <SliderWrapper>
+        <Slider bullets>
+          {items.map(item => {
+            return <div data-src={item.original} />
+          })}
+        </Slider>
+      </SliderWrapper>
     </div>
   )
 }
