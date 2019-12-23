@@ -11,7 +11,7 @@ const GlobalStyle = createGlobalStyle`
   ${reset}
 
   html {
-    font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-family: "Courier", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   }
 
   body {
@@ -19,7 +19,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: "Fira Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-family: "Courier", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   }
 
   .gatsby-resp-image-wrapper {

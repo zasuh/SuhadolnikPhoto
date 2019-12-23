@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { useIntl } from 'gatsby-plugin-intl'
-import { Layout, AboutHeader, SideBar } from '../components'
+import { Layout, AboutHeader } from '../components'
 
 const BG = styled.div`
   background-color: ${props => props.theme.colors.bg};
@@ -24,29 +24,21 @@ const BooksGrid = styled.div`
   }
 `
 
-const CataloguesTitle = styled.h2`
-  margin: 0 auto 0 auto;
-  max-width: 600px;
-  padding: 4rem 1.0875rem 6rem;
-  position: relative;
-  text-align: center;
-`
-
 const About = () => {
   const intl = useIntl()
   return (
-    <Layout customSEO id="outer-container">
-      <SideBar right pageWrapId="page-wrap" outerContainerId="outer-container" />
+    <Layout customSEO>
       <AboutHeader />
       <BG id="page-wrap">
         <WrapperBooksGrid>
+          <h4 style={{ marginTop: 0 }}>{intl.formatMessage({ id: 'books_link' })}</h4>
           <BooksGrid>
             <img src="https://via.placeholder.com/300" alt="" />
             <p>Text for book</p>
             <img src="https://via.placeholder.com/300" alt="" />
             <p>Text for book 2</p>
           </BooksGrid>
-          <CataloguesTitle>{intl.formatMessage({ id: 'catalogues' })}</CataloguesTitle>
+          <h4>{intl.formatMessage({ id: 'catalogues' })}</h4>
         </WrapperBooksGrid>
       </BG>
     </Layout>

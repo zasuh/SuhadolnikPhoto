@@ -3,6 +3,8 @@ import styled from 'styled-components'
 import { useIntl } from 'gatsby-plugin-intl'
 import { Layout, AboutHeader } from '../components'
 
+import portrait from '../../content/assets/portrait.jpg'
+
 const BG = styled.div`
   background-color: ${props => props.theme.colors.bg};
 `
@@ -14,13 +16,22 @@ const Bio = styled.div`
   padding: 15px;
 `
 
+const Portrait = styled.img`
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 0 20px 0;
+  width: 20%;
+  filter: grayscale(100%);
+`
+
 const About = () => {
   const intl = useIntl()
   return (
     <Layout>
       <AboutHeader />
       <BG id="page-wrap">
-        <img src="../../content/assets/portrait.jpg" alt="" />
+        <Portrait src={portrait} alt="" />
         <Bio>{intl.formatMessage({ id: 'about' })}</Bio>
       </BG>
     </Layout>

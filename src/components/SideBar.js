@@ -18,11 +18,11 @@ const useStyles = makeStyles({
   },
   listItemText: {
     fontSize: '1.3em',
-    fontFamily: 'Fira Sans, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif',
+    fontFamily: 'Courier, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif',
   },
   listItemHeader: {
     fontSize: '1.8em',
-    fontFamily: 'Fira Sans, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif',
+    fontFamily: 'Courier, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif',
   },
   paper: {
     backgroundColor: grey[800],
