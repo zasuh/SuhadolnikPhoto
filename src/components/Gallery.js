@@ -37,7 +37,7 @@ const SliderWrapper = styled.div`
   .awssld {
     --loader-bar-color: white;
     --organic-arrow-thickness: 1px;
-    --content-background-color: #6a6a6a;
+    --content-background-color: #6b6b6b;
     --organic-arrow-color: var(--control-button-background);
   }
   .awssld:hover {
