@@ -17,6 +17,7 @@ const Exhibitions = styled.ul`
 const About = () => {
   const intl = useIntl()
   const exhibitionList = JSON.parse(intl.formatMessage({ id: 'exhibitionList' }))
+  const groupExhibitionsList = JSON.parse(intl.formatMessage({ id: 'groupExhibitionList' }))
   return (
     <Layout customSEO>
       <AboutHeader />
@@ -27,7 +28,7 @@ const About = () => {
             return <li key={uuid.v4()}>{item}</li>
           })}
           <h4>{intl.formatMessage({ id: 'groupExhibitions' })}</h4>
-          {['1'].map(item => {
+          {groupExhibitionsList.map(item => {
             return <li key={uuid.v4()}>{item}</li>
           })}
         </Exhibitions>
