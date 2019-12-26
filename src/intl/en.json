@@ -19,5 +19,9 @@
   "contact_subject": "Subject",
   "contact_message": "Message",
   "contact_upload_file": "Upload File",
-  "contact_send_msg": "Send Message"
+  "contact_send_msg": "Send Message",
+  "portraits": "Portraits",
+  "auslenders": "Auslenders",
+  "armenia": "Armenia",
+  "stories": "Stories"
 }

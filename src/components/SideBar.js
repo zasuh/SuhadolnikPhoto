@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { useIntl } from 'gatsby-plugin-intl'
 import { makeStyles } from '@material-ui/core/styles'
 import Drawer from '@material-ui/core/Drawer'
 import Button from '@material-ui/core/Button'
@@ -38,6 +39,7 @@ const SideBar = () => {
   const [state, setState] = React.useState({
     right: false,
   })
+  const intl = useIntl()
   const data = useStaticQuery(graphql`
     query SideBarQuery {
       allMdx(sort: { fields: [frontmatter___date], order: DESC }) {
@@ -69,11 +71,13 @@ const SideBar = () => {
       onKeyDown={toggleDrawer(side, false)}
     >
       <List>
-        {['Stories / Zgodbe'].map(text => (
-          <ListItem key={text}>
-            <ListItemText primary={text} style={{ color: grey[50] }} classes={{ primary: classes.listItemHeader }} />
-          </ListItem>
-        ))}
+        <ListItem key={intl.formatMessage({ id: 'stories' })}>
+          <ListItemText
+            primary={intl.formatMessage({ id: 'stories' })}
+            style={{ color: grey[50] }}
+            classes={{ primary: classes.listItemHeader }}
+          />
+        </ListItem>
       </List>
       <Divider />
       <List>
@@ -81,7 +85,10 @@ const SideBar = () => {
           return (
             <ListItem button key={item}>
               <Link id={item.fields.slug} key={item} to={item.fields.slug}>
-                <ListItemText primary={item.frontmatter.title} classes={{ primary: classes.listItemText }} />
+                <ListItemText
+                  primary={intl.formatMessage({ id: item.frontmatter.title })}
+                  classes={{ primary: classes.listItemText }}
+                />
               </Link>
             </ListItem>
           )

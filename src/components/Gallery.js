@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import uuid from 'uuid'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
 
 import AwesomeSlider from 'react-awesome-slider'
@@ -62,7 +63,7 @@ const Gallery = ({ images, text }) => {
       <SliderWrapper>
         <Slider bullets>
           {items.map(item => {
-            return <div data-src={item.original} />
+            return <div data-src={item.original} key={uuid.v4()} />
           })}
         </Slider>
       </SliderWrapper>

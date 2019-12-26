@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
+import { useIntl } from 'gatsby-plugin-intl'
 import { Link } from 'gatsby'
 
 import arrowLeft from '../images/left-chevron.svg'
@@ -40,27 +41,30 @@ const Next = styled.div`
   margin-left: auto;
 `
 
-const ProjectPagination = ({ next, prev }) => (
-  <Wrapper>
-    {prev && (
-      <Prev>
-        <Link to={prev.fields.slug}>
-          <img src={arrowLeft} alt="Arrow Left" />
-          {prev.frontmatter.title}
-        </Link>
-      </Prev>
-    )}
+const ProjectPagination = ({ next, prev }) => {
+  const intl = useIntl()
+  return (
+    <Wrapper>
+      {prev && (
+        <Prev>
+          <Link to={prev.fields.slug}>
+            <img src={arrowLeft} alt="Arrow Left" />
+            {intl.formatMessage({ id: prev.frontmatter.title })}
+          </Link>
+        </Prev>
+      )}
 
-    {next && (
-      <Next>
-        <Link to={next.fields.slug}>
-          {next.frontmatter.title}
-          <img src={arrowRight} alt="Arrow Right" />
-        </Link>
-      </Next>
-    )}
-  </Wrapper>
-)
+      {next && (
+        <Next>
+          <Link to={next.fields.slug}>
+            {intl.formatMessage({ id: next.frontmatter.title })}
+            <img src={arrowRight} alt="Arrow Right" />
+          </Link>
+        </Next>
+      )}
+    </Wrapper>
+  )
+}
 
 export default ProjectPagination
 

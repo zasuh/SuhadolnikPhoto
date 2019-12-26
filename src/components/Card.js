@@ -1,24 +1,21 @@
 import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import { useSpring, animated, config } from 'react-spring'
 import { rgba } from 'polished'
 import Img from 'gatsby-image'
 import { Link } from 'gatsby'
+import { useIntl } from 'gatsby-plugin-intl'
 
 const CardItem = styled(Link)`
   min-height: 500px;
   position: relative;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.2);
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   color: ${props => props.theme.colors.color};
-  transition: all 0.3s ease-in-out;
 
   &:hover {
     color: white;
-    transform: translateY(-6px);
   }
 
   @media (max-width: ${props => props.theme.breakpoints.s}) {
@@ -44,6 +41,7 @@ const Content = styled.div`
   opacity: 0;
   background: ${props => rgba(props.theme.colors.card_bg, 0.65)};
   height: 0;
+  text-align: center;
 
   ${CardItem}:hover & {
     opacity: 1;
@@ -53,12 +51,11 @@ const Content = styled.div`
 
 const Bottom = styled.div`
   margin-top: 0.5rem;
-  display: flex;
-  align-items: center;
   font-size: 0.85rem;
   div:first-child {
     margin-right: 1rem;
   }
+  text-align: center;
 `
 
 const Name = styled.h2`
@@ -66,36 +63,22 @@ const Name = styled.h2`
   margin-top: 0;
 `
 
-const Card = ({ path, cover, date, areas, title, delay }) => {
-  const springProps = useSpring({
-    config: config.slow,
-    delay: 200 * delay,
-    from: { opacity: 0, transform: 'translate3d(0, 30px, 0)' },
-    to: { opacity: 1, transform: 'translate3d(0, 0, 0)' },
-  })
-
+const Card = ({ path, cover, date, title }) => {
+  const intl = useIntl()
   return (
-    <animated.div style={springProps}>
+    <div>
       <CardItem to={path}>
         <Cover>
           <Img fluid={cover} />
         </Cover>
         <Content>
-          <Name>{title}</Name>
+          <Name>{intl.formatMessage({ id: title })}</Name>
           <Bottom>
             <div>{date}</div>
-            <div>
-              {areas.map((area, index) => (
-                <React.Fragment key={area}>
-                  {index > 0 && ', '}
-                  {area}
-                </React.Fragment>
-              ))}
-            </div>
           </Bottom>
         </Content>
       </CardItem>
-    </animated.div>
+    </div>
   )
 }
 
@@ -105,7 +88,5 @@ Card.propTypes = {
   path: PropTypes.string.isRequired,
   cover: PropTypes.object.isRequired,
   date: PropTypes.string.isRequired,
-  areas: PropTypes.array.isRequired,
   title: PropTypes.string.isRequired,
-  delay: PropTypes.number.isRequired,
 }

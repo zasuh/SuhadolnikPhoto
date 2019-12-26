@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
+import { useIntl } from 'gatsby-plugin-intl'
 import { Link } from 'gatsby'
 import { useSpring, animated, config } from 'react-spring'
 import SideBar from './SideBar'
@@ -57,7 +58,8 @@ const Drawer = styled(SideBar)`
   justify-content: flex-end;
 `
 
-const ProjectHeader = ({ name, title, date, areas }) => {
+const ProjectHeader = ({ name, title, date }) => {
+  const intl = useIntl()
   const titleProps = useSpring({
     config: config.slow,
     delay: 200,
@@ -75,17 +77,9 @@ const ProjectHeader = ({ name, title, date, areas }) => {
           <Name>{name}</Name>
         </Back>
         <Details>
-          <animated.h1 style={titleProps}>{title}</animated.h1>
+          <animated.h1 style={titleProps}>{intl.formatMessage({ id: title })}</animated.h1>
           <animated.div style={contentProps}>
             <p>{date}</p>
-            <div>
-              {areas.map((area, index) => (
-                <React.Fragment key={area}>
-                  {index > 0 && ', '}
-                  {area}
-                </React.Fragment>
-              ))}
-            </div>
           </animated.div>
         </Details>
       </Content>
@@ -99,5 +93,4 @@ ProjectHeader.propTypes = {
   name: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   date: PropTypes.string.isRequired,
-  areas: PropTypes.array.isRequired,
 }
