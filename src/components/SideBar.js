@@ -17,7 +17,7 @@ const useStyles = makeStyles({
     width: 350,
   },
   listItemText: {
-    fontSize: '1.3em',
+    fontSize: '1em',
     fontFamily: 'Courier, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif',
   },
   listItemHeader: {
