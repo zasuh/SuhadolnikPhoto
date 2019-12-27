@@ -21,7 +21,7 @@ const Portrait = styled.img`
   margin-left: auto;
   margin-right: auto;
   padding: 0 0 20px 0;
-  width: 20%;
+  width: 300px;
   filter: grayscale(100%);
 `
 
