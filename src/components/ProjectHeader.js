@@ -28,6 +28,7 @@ const Back = styled(Link)`
   flex-direction: row;
   align-items: center;
   justify-content: flex-start;
+  width: 20%;
 
   img[data-info='back'] {
     width: 1.5rem;

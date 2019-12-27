@@ -30,7 +30,7 @@ const Slider = styled(AwesomeSlider)`
     background: white;
     width: 5px;
     height: 5px;
-    margin: 10px;
+    margin: 1%;
   }
 `
 

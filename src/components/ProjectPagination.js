@@ -11,7 +11,7 @@ const Wrapper = styled.div`
   display: flex;
   max-width: ${props => props.theme.maxWidths.general};
   margin: 0 auto;
-  padding: 3rem 0;
+  padding: 5rem 0 1rem 0;
   a {
     color: ${props => props.theme.colors.color};
     display: flex;
@@ -26,17 +26,23 @@ const Wrapper = styled.div`
 
 const Prev = styled.div`
   img {
-    width: 25px;
-    height: 25px;
+    width: 15px;
+    height: 15px;
     margin: 0 1rem 0 0;
+  }
+  a {
+    font-size: 1rem;
   }
 `
 
 const Next = styled.div`
   img {
-    width: 25px;
-    height: 25px;
+    width: 15px;
+    height: 15px;
     margin: 0 0 0 1rem;
+  }
+  a {
+    font-size: 1rem;
   }
   margin-left: auto;
 `

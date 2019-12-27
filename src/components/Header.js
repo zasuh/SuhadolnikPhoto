@@ -20,14 +20,14 @@ const Content = styled.div`
     text-decoration: underline;
   }
   @media (max-width: ${props => props.theme.breakpoints.s}) {
-    height: 500px;
+    height: 350px;
   }
 `
 
 const Name = styled.h1`
   margin: 1rem 0 0.25rem 0;
   color: ${props => props.theme.colors.color};
-  font-size: 4rem;
+  font-size: 3rem;
 `
 
 const Contact = styled(Link)`

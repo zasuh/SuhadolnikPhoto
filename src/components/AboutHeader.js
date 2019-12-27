@@ -28,6 +28,7 @@ const Back = styled(Link)`
   flex-direction: row;
   align-items: center;
   justify-content: flex-start;
+  width: 20%;
 
   img[data-info='back'] {
     width: 1.5rem;
@@ -43,11 +44,15 @@ const Name = styled(animated.h4)`
 
 const Details = styled.div`
   width: 100%;
-  margin-top: 1rem;
+  margin-top: 2rem;
   text-align: center;
 
   h1 {
     color: ${props => props.theme.colors.color};
+  }
+
+  @media (max-width: 768px) {
+    margin-top: 3rem;
   }
 `
 

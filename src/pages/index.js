@@ -13,6 +13,7 @@ const Grid = styled.div`
 
   @media (max-width: 768px) {
     grid-template-columns: 1fr;
+    grid-gap: 1fr;
   }
 
   .gatsby-image-outer-wrapper,
