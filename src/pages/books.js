@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { useIntl } from 'gatsby-plugin-intl'
+import uuid from 'uuid'
 import { Layout, AboutHeader } from '../components'
 
 const BG = styled.div`
@@ -26,12 +27,13 @@ const BooksGrid = styled.div`
 
 const About = () => {
   const intl = useIntl()
+  const cataloguesList = JSON.parse(intl.formatMessage({ id: 'cataloguesList' }))
   return (
     <Layout customSEO>
       <AboutHeader />
       <BG id="page-wrap">
         <WrapperBooksGrid>
-          <h4 style={{ marginTop: 0 }}>{intl.formatMessage({ id: 'books_link' })}</h4>
+          <h4 style={{ marginTop: 0 }}>{intl.formatMessage({ id: 'books' })}</h4>
           <BooksGrid>
             <img src="https://via.placeholder.com/300" alt="" />
             <p>Text for book</p>
@@ -39,6 +41,9 @@ const About = () => {
             <p>Text for book 2</p>
           </BooksGrid>
           <h4>{intl.formatMessage({ id: 'catalogues' })}</h4>
+          {cataloguesList.map(item => {
+            return <li key={uuid.v4()}>{item}</li>
+          })}
         </WrapperBooksGrid>
       </BG>
     </Layout>
