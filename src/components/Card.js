@@ -32,6 +32,9 @@ const Cover = styled.div`
       object-fit: scale-down !important;
     }
   }
+  .gatsby-image-wrapper div {
+    padding-bottom: 0 !important;
+  }
 `
 
 const Content = styled.div`
