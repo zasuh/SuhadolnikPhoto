@@ -1,6 +1,6 @@
 # Suhadolnik Photo - A Gatsby photography site
 
-![alt text](https://imgur.com/uiTnZQi)
+![Home page](https://imgur.com/a/8Z626eR)
 
 Stack includes:
 
@@ -10,4 +10,4 @@ Stack includes:
 * Material UI for Drawer component
 * `react-awesome-slider` for gallery carousel
 
-[![Deployed with Netlify](https://www.netlify.com/img/deploy/button.svg)]
+![Deployed with Netlify](https://www.netlify.com/img/deploy/button.svg)
