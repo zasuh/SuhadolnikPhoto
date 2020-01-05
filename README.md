@@ -1,6 +1,6 @@
 # Suhadolnik Photo - A Gatsby photography site
 
-![Home page](https://imgur.com/a/8Z626eR)
+![Home Page](https://imgur.com/uiTnZQi)
 
 Stack includes:
 
