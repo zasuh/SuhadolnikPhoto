@@ -3,6 +3,8 @@ import styled from 'styled-components'
 import { useIntl } from 'gatsby-plugin-intl'
 import uuid from 'uuid'
 import { Layout, AboutHeader } from '../components'
+import NSK from '../images/ALBUM 01.jpg'
+import NSK2 from '../images/ALBUM 02.jpg'
 
 const BG = styled.div`
   background-color: ${props => props.theme.colors.bg};
@@ -10,7 +12,7 @@ const BG = styled.div`
 
 const WrapperBooksGrid = styled.div`
   margin: 0 auto 0 auto;
-  max-width: 600px;
+  max-width: 700px;
   padding: 0 1.0875rem 6rem;
   position: relative;
 `
@@ -35,10 +37,10 @@ const About = () => {
         <WrapperBooksGrid>
           <h4 style={{ marginTop: 0 }}>{intl.formatMessage({ id: 'books' })}</h4>
           <BooksGrid>
-            <img src="https://via.placeholder.com/300" alt="" />
-            <p>Text for book</p>
-            <img src="https://via.placeholder.com/300" alt="" />
-            <p>Text for book 2</p>
+            <img src={NSK} height="300" width="300" alt="The first book" />
+            <p>Album - neue slowenische kunst</p>
+            <img src={NSK2} height="500" width="400" alt="The first book" />
+            <p>Album 2 - neue slowenische kunst</p>
           </BooksGrid>
           <h4>{intl.formatMessage({ id: 'catalogues' })}</h4>
           {cataloguesList.map(item => {
