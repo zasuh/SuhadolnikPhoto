@@ -3,8 +3,11 @@ import styled from 'styled-components'
 import { useIntl } from 'gatsby-plugin-intl'
 import uuid from 'uuid'
 import { Layout, AboutHeader } from '../components'
+
 import NSK from '../images/ALBUM 01.jpg'
 import NSK2 from '../images/ALBUM 02.jpg'
+import NSK3 from '../images/ALBUM 03.jpg'
+import BP1 from '../images/BALKAN PANK 01.jpg'
 
 const BG = styled.div`
   background-color: ${props => props.theme.colors.bg};
@@ -41,6 +44,10 @@ const About = () => {
             <p>Album - neue slowenische kunst</p>
             <img src={NSK2} height="500" width="400" alt="The first book" />
             <p>Album 2 - neue slowenische kunst</p>
+            <img src={NSK3} height="300" width="300" alt="The first book" />
+            <p>Album 3 - neue slowenische kunst</p>
+            <img src={BP1} height="500" width="400" alt="The first book" />
+            <p>Balkan Pank</p>
           </BooksGrid>
           <h4>{intl.formatMessage({ id: 'catalogues' })}</h4>
           {cataloguesList.map(item => {
