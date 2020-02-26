@@ -5,9 +5,12 @@ import uuid from 'uuid'
 import { Layout, AboutHeader } from '../components'
 
 import NSK from '../images/ALBUM 01.jpg'
-import NSK2 from '../images/ALBUM 02.jpg'
-import NSK3 from '../images/ALBUM 03.jpg'
 import BP1 from '../images/BALKAN PANK 01.jpg'
+import REF from '../images/BEGUNCI 01.jpg'
+import CIR from '../images/CIRCUS 01.jpg'
+import MIR from '../images/JUTRA V RUSIJI 01.jpg'
+import MW from '../images/JUTRANJI SPREHAJALEC 01.jpg'
+import FFW from '../images/OBČUTEK ZA VETER 01.jpg'
 
 const BG = styled.div`
   background-color: ${props => props.theme.colors.bg};
@@ -42,12 +45,18 @@ const About = () => {
           <BooksGrid>
             <img src={NSK} height="300" width="300" alt="The first book" />
             <p>Album - neue slowenische kunst</p>
-            <img src={NSK2} height="500" width="400" alt="The first book" />
-            <p>Album 2 - neue slowenische kunst</p>
-            <img src={NSK3} height="300" width="300" alt="The first book" />
-            <p>Album 3 - neue slowenische kunst</p>
             <img src={BP1} height="500" width="400" alt="The first book" />
             <p>Balkan Pank</p>
+            <img src={REF} height="500" width="400" alt="The first book" />
+            <p>Refugees</p>
+            <img src={CIR} height="500" width="400" alt="The first book" />
+            <p>Circus</p>
+            <img src={MIR} height="500" width="400" alt="The first book" />
+            <p>Mornings in Russia</p>
+            <img src={MW} height="500" width="400" alt="The first book" />
+            <p>Kajetan Kovič: The Morning Walker</p>
+            <img src={FFW} height="500" width="400" alt="The first book" />
+            <p>Feri Lainšček & Dušan Šarotar: Feeling for the wing</p>
           </BooksGrid>
           <h4>{intl.formatMessage({ id: 'catalogues' })}</h4>
           {cataloguesList.map(item => {
