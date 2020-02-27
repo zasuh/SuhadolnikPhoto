@@ -11,6 +11,7 @@ import CIR from '../images/CIRCUS 01.jpg'
 import MIR from '../images/JUTRA V RUSIJI 01.jpg'
 import MW from '../images/JUTRANJI SPREHAJALEC 01.jpg'
 import FFW from '../images/OBČUTEK ZA VETER 01.jpg'
+import POR from '../images/PORTRETI 01.jpg'
 
 const BG = styled.div`
   background-color: ${props => props.theme.colors.bg};
@@ -48,15 +49,17 @@ const About = () => {
             <img src={BP1} height="500" width="400" alt="The first book" />
             <p>Balkan Pank</p>
             <img src={REF} height="500" width="400" alt="The first book" />
-            <p>Refugees</p>
+            <p>{intl.formatMessage({ id: 'refugees' })}</p>
             <img src={CIR} height="500" width="400" alt="The first book" />
             <p>Circus</p>
             <img src={MIR} height="500" width="400" alt="The first book" />
-            <p>Mornings in Russia</p>
+            <p>{intl.formatMessage({ id: 'russia' })}</p>
             <img src={MW} height="500" width="400" alt="The first book" />
-            <p>Kajetan Kovič: The Morning Walker</p>
+            <p>Kajetan Kovič: {intl.formatMessage({ id: 'walker' })}</p>
             <img src={FFW} height="500" width="400" alt="The first book" />
-            <p>Feri Lainšček & Dušan Šarotar: Feeling for the wing</p>
+            <p>Feri Lainšček & Dušan Šarotar: {intl.formatMessage({ id: 'wind' })}</p>
+            <img src={POR} height="500" width="400" alt="The first book" />
+            <p>{intl.formatMessage({ id: 'portraits' })}</p>
           </BooksGrid>
           <h4>{intl.formatMessage({ id: 'catalogues' })}</h4>
           {cataloguesList.map(item => {
