@@ -43,7 +43,7 @@
     "gatsby-remark-external-links": "^0.0.4",
     "gatsby-remark-normalize-paths": "^1.0.0",
     "gatsby-source-filesystem": "^2.1.8",
-    "gatsby-transformer-remark": "^2.6.30",
+    "gatsby-transformer-remark": "^5.25.1",
     "gatsby-transformer-sharp": "^2.2.5",
     "i18next": "^19.0.0",
     "i18next-browser-languagedetector": "^4.0.1",
